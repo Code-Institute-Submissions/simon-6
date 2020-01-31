@@ -17,28 +17,35 @@
 
 <body>
 	<header class="container-fluid nav_bar"></header>
-	<section class="gameplay">
-        <div class="color_btn" id="red">
-			<div class="lighten" id="red-lit"></div>
+
+
+	<section class="gamezone">
+
+		<div class="color_btn" id="dullred">
+			<div class="lighten" id="red"></div>
+		</div>
+		<div class="color_btn" onclick="" id="dullgreen">
+			<div class="lighten" id="green"></div>
+		</div>
+		<div class="color_btn" id="dullyellow">
+			<div class="lighten" id="yellow"></div>
 		</div>
 
-		<div class="color_btn" id="green">
-			<div class="lighten" id="green-lit"></div>
+		<div class="color_btn" id="dullblue">
+			<div class="lighten" id="blue"></div>
 		</div>
 
-		<div class="color_btn" id="yellow">
-			<div class="lighten" id="yellow-lit"></div>
-		</div>
+		<div class="overlay"></div>
 
-		<div class="color_btn" id="blue">
-			<div class="lighten" id="blue-lit"></div>
+
+		<div class="title">
+			<h1 class="text-lowercase text-center"><span>the</span><br>simon game</h1>
+				<button id="begin" onclick="myFunction()">play</button>
 		</div>
-        
-        <div class="title">
-            <h1 class="text-lowercase text-center"><span>the</span> simon game</h1>
-        </div>
 	</section>
 	<footer></footer>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="assets/js/scripts.js"></script>
 </body>
 
