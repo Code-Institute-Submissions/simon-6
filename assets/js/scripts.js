@@ -1,21 +1,22 @@
-console.log(5 + 6);
+let colorComp = [];
+
+function myFunction() {
 
 let colorPool = ["red", "green", "yellow", "blue"];
-let newColor = colorPool[Math.floor(Math.random() * (colorPool.length))];
-
-function myFunction() {
-
-let colorComp= [];
+let newColor = colorPool[Math.floor(Math.random() * (colorPool.length))];    
 let colorId = "#" + newColor;
 let colorClass = "." + newColor;
 let i;
 
 colorComp[colorComp.length] = newColor;
 
-console.log(colorComp);
 
+ $(colorId).addClass(colorClass);
+console.log(colorComp);
 }
-/*let userInput =  []
+
+/*
+let userInput =  []
 if(userInput === colorComp) {
     myFunction();
 } else {
