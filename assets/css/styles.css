@@ -76,7 +76,7 @@ h1 span {
 /*----------------------------- highlighted divs ----------------------------- */
 .lighten {
     height: 100%;
-    
+    background-color: transparent;
 }
 
 .red {
