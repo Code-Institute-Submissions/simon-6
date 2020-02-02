@@ -76,25 +76,22 @@ h1 span {
 /*----------------------------- highlighted divs ----------------------------- */
 .lighten {
     height: 100%;
+    
 }
 
-#red {
+.red {
     background-color: rgb(255,0,0);
-    display: none;
 }
 
-#green {
+.green {
     background: rgb(0,255,0);
-    display: none;
 }
 
-#yellow{
+.yellow{
     background-color: rgb(255,255,0);
-    display: none;
 }
 
-#blue {
+.blue {
     background-color: rgb(0,0,255);
-    display: none;
 }
 

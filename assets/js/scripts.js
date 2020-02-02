@@ -1,19 +1,23 @@
+console.log(5 + 6);
 
-let colorPool = ["red", "green", "yellow", "blue"];
-let i;
-let colorComp= [];
+let colorPool = ["red", "green", "yellow", "blue"];
+let newColor = colorPool[Math.floor(Math.random() * (colorPool.length))];
 
-function myFunction() {
-newColor = colorPool[Math.floor(Math.random() * (colorPool.length))];
-colorComp[colorComp.length] = newColor;
+function myFunction() {
 
+let colorComp= [];
+let colorId = "#" + newColor;
+let colorClass = "." + newColor;
+let i;
 
-$(newColor).style.display = "block";
+colorComp[colorComp.length] = newColor;
+
+console.log(colorComp);
+
 }
-;
-
-/* if(userInput === colorComp) {
-    myFunction();
-} else {
-    alert("Game Over!");
-    */
+/*let userInput =  []
+if(userInput === colorComp) {
+    myFunction();
+} else {
+    alert("Game Over!");
+    */
