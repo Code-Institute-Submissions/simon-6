@@ -2,17 +2,23 @@ let colorComp = [];
 
 function myFunction() {
 
-let colorPool = ["red", "green", "yellow", "blue"];
-let newColor = colorPool[Math.floor(Math.random() * (colorPool.length))];    
-let colorId = "#" + newColor;
-let colorClass = "." + newColor;
+const colorPool = ["red", "green", "yellow", "blue"];
 let i;
 
-colorComp[colorComp.length] = newColor;
-
-
- $(colorId).addClass(colorClass);
+colorComp[colorComp.length] = colorPool[Math.floor(Math.random() * (colorPool.length))];    
 console.log(colorComp);
+
+for(i = 0; i < colorComp.length; i++) {
+
+colorId = "#" + colorComp[i];   
+colorClass = colorComp[i];
+
+$(colorId).addClass(colorClass);
+console.log(colorId + " " + colorClass);
+
+
+}
+
 }
 
 /*
@@ -21,4 +27,6 @@ if(userInput === colorComp) {
     myFunction();
 } else {
     alert("Game Over!");
+let colorId = "#" + newColor;
+let colorClass = "." + newColor;
     */
