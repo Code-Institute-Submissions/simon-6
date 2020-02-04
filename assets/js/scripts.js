@@ -24,18 +24,22 @@ let timer = setInterval(function() {
     }, 1000);
    
     i++;
-}, 1100);
-
-}
+}, 1500);
 
 
+let userArray = [];
 
-/*
-let userInput =  []
-if(userInput === colorComp) {
+    $(".color_btn").children().click(function () {
+        userArray[userArray.length] = this.id;
+    });
+
+ 
+
+
+if(userArray === colorComp) {
     myFunction();
 } else {
     alert("Game Over!");
-let colorId = "#" + newColor;
-let colorClass = "." + newColor;
-    */
+}
+
+}
