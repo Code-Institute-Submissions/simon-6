@@ -24,7 +24,7 @@ let timer = setInterval(function() {
     }, 1000);
    
     i++;
-}, 1000);
+}, 1100);
 
 }
 
