@@ -3,23 +3,32 @@ let colorComp = [];
 function myFunction() {
 
 const colorPool = ["red", "green", "yellow", "blue"];
-let i;
+let i = 0;
 
 colorComp[colorComp.length] = colorPool[Math.floor(Math.random() * (colorPool.length))];    
 console.log(colorComp);
 
-for(i = 0; i < colorComp.length; i++) {
+let timer = setInterval(function() {
+   if(i === colorComp.length) {
+      clearInterval(timer);
+   }
 
-colorId = "#" + colorComp[i];   
-colorClass = colorComp[i];
+    let colorId = "#" + colorComp[i];   
+    let colorClass = colorComp[i];
 
-$(colorId).addClass(colorClass);
-console.log(colorId + " " + colorClass);
+    console.log(colorClass);
+    $(colorId).addClass(colorClass);
 
+    setTimeout(function() {
+        $(colorId).removeClass(colorClass);
+    }, 1000);
+   
+    i++;
+}, 1000);
 
 }
 
-}
+
 
 /*
 let userInput =  []
