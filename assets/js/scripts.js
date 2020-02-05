@@ -23,40 +23,50 @@ let timer = setInterval(function() {
     i++;
 }, 1200);
 
-}
 
 
 
-let i = 0;
-    $(".color_btn").children().click(function () {
-        let userArray = [];
+let userArray = [];
+let count = 0;
+
+    $(".color_btn").children().click(function() {
         userArray[userArray.length] = this.id;
-        if(userArray[i] === colorComp[i]) {
-            console.log("indexes match")
-            if(userArray.length == colorComp.length) {
-                result();  
-            } else {
-                console.log(colorComp);
-                console.log(userArray);
-            }
-            }
+        console.log(userArray + " " + count);
+        compareIndex();
+        
 
-        else {
-            console.log("keep going");
-        }
-        i++;
-
-        function result() {
-            for(i = 0; i < colorComp.length; i++) {
-                if(colorComp[i] === userArray[i]) {
-                    console.log("match");
+        function compareIndex() {
+            if(userArray[count] === colorComp[count]) {
+                console.log("The indexes match");
+                if(userArray.length === colorComp.length) {
+                    userArray =[];
+                    count = 0;
+                    console.log("Matched!");
+                    playGame();
                 }
                 else {
-                    return false;
+                    count ++;
                 }
             }
+            else {
+                 alert("GAME OVER");
+            }
+                
         }
+
     });
+}
+ 
+ 
+
+            
+
+    
+
+
+        
+        
+
 
      
 
