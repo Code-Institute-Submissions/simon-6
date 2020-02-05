@@ -48,14 +48,12 @@ let i = 0;
 
         function result() {
             for(i = 0; i < colorComp.length; i++) {
-                console.log(typeof(colorComp));
-                console.log(typeof(userArray));
-                /*if(colorComp[i] === userArray[i]) {
+                if(colorComp[i] === userArray[i]) {
                     console.log("match");
                 }
                 else {
                     return false;
-                }*/
+                }
             }
         }
     });
