@@ -45,6 +45,19 @@ let i = 0;
             console.log("keep going");
         }
         i++;
+
+        function result() {
+            for(i = 0; i < colorComp.length; i++) {
+                console.log(typeof(colorComp));
+                console.log(typeof(userArray));
+                /*if(colorComp[i] === userArray[i]) {
+                    console.log("match");
+                }
+                else {
+                    return false;
+                }*/
+            }
+        }
     });
 
      
@@ -52,14 +65,7 @@ let i = 0;
 
 
 
-function result() {
 
-   playGame();
-
-
-            
-   
-    }
 
 
 
