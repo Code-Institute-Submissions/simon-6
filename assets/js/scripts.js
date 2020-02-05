@@ -1,12 +1,11 @@
 let colorComp = [];
 
-function myFunction() {
+function playGame() {
 
 const colorPool = ["red", "green", "yellow", "blue"];
 let i = 0;
 
 colorComp[colorComp.length] = colorPool[Math.floor(Math.random() * (colorPool.length))];    
-console.log(colorComp);
 
 let timer = setInterval(function() {
    if(i === colorComp.length) {
@@ -16,30 +15,51 @@ let timer = setInterval(function() {
     let colorId = "#" + colorComp[i];   
     let colorClass = colorComp[i];
 
-    console.log(colorClass);
     $(colorId).addClass(colorClass);
-
     setTimeout(function() {
         $(colorId).removeClass(colorClass);
     }, 1000);
    
     i++;
-}, 1500);
+}, 1200);
+
+}
 
 
-let userArray = [];
 
+let i = 0;
     $(".color_btn").children().click(function () {
+        let userArray = [];
         userArray[userArray.length] = this.id;
+        if(userArray[i] === colorComp[i]) {
+            console.log("indexes match")
+            if(userArray.length == colorComp.length) {
+                result();  
+            } else {
+                console.log(colorComp);
+                console.log(userArray);
+            }
+            }
+
+        else {
+            console.log("keep going");
+        }
+        i++;
     });
 
- 
+     
 
 
-if(userArray === colorComp) {
-    myFunction();
-} else {
-    alert("Game Over!");
-}
 
-}
+
+function result() {
+
+   playGame();
+
+
+            
+   
+    }
+
+
+
