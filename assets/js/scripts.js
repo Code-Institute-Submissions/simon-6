@@ -25,37 +25,40 @@ let timer = setInterval(function() {
 
 
 
+}
 
 let userArray = [];
-let count = 0;
+let i = 0;
 
     $(".color_btn").children().click(function() {
+        console.log(i);
         userArray[userArray.length] = this.id;
-        console.log(userArray + " " + count);
+        console.log(userArray + " " + colorComp);
         compareIndex();
-        
 
         function compareIndex() {
-            if(userArray[count] === colorComp[count]) {
+            if(userArray[i] === colorComp[i]) {
                 console.log("The indexes match");
                 if(userArray.length === colorComp.length) {
                     userArray =[];
-                    count = 0;
-                    console.log("Matched!");
+                    i = 0;
+                    console.log("Array is: " + userArray + " & i:" + i);
+
                     playGame();
                 }
                 else {
-                    count ++;
+                    i++;
                 }
             }
             else {
                  alert("GAME OVER");
+
             }
                 
         }
 
     });
-}
+
  
  
 
