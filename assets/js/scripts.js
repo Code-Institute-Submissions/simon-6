@@ -31,10 +31,20 @@ let userArray = [];
 let i = 0;
 
     $(".color_btn").children().click(function() {
-        console.log(i);
-        userArray[userArray.length] = this.id;
-        console.log(userArray + " " + colorComp);
-        compareIndex();
+        let colorId = "#" + this.id;
+        let colorClass = this.id;
+        userArray[userArray.length] = colorClass;
+        console.log(colorId + "/." + colorClass + " " + userArray);
+
+        $(colorId).addClass(colorClass);
+        setTimeout(function() {
+                $(colorId).removeClass(colorClass);
+        }, 1000);
+
+        setTimeout(function() {
+                compareIndex();
+        }, 1500);
+        
 
         function compareIndex() {
             if(userArray[i] === colorComp[i]) {
