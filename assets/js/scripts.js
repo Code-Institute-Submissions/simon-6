@@ -31,12 +31,14 @@ let userArray = [];
 let i = 0;
 
     $(".color_btn").children().click(function() {
-        let colorId = "#" + this.id;
         let colorClass = this.id;
+        let colorId = "#" + this.id;
+        let soundId = colorId + "-beep";
         userArray[userArray.length] = colorClass;
-        console.log(colorId + "/." + colorClass + " " + userArray);
+        console.log(colorId + "/." + colorClass + " " + soundId);
 
         $(colorId).addClass(colorClass);
+        $(soundId)[0].play();
         setTimeout(function() {
                 $(colorId).removeClass(colorClass);
         }, 1000);
