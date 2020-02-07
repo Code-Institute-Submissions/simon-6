@@ -35,10 +35,13 @@ let i = 0;
         let colorId = "#" + this.id;
         let soundId = colorId + "-beep";
         userArray[userArray.length] = colorClass;
-        console.log(colorId + "/." + colorClass + " " + soundId);
+        //console.log(colorId + "/." + colorClass + "/" + soundId);
+        console.log(userArray + " vs " + colorComp);
+        console.log(soundId.duration);
 
         $(colorId).addClass(colorClass);
         $(soundId)[0].play();
+        c
         setTimeout(function() {
                 $(colorId).removeClass(colorClass);
         }, 1000);
