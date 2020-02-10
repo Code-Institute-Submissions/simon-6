@@ -15,8 +15,9 @@
 </head>
 
 <body>
-	<header class="container-fluid nav_bar"></header>
-
+<nav>
+    <button class = "navbar-toggle">
+</nav>
 	<section class="gamezone">
 
 		<div class="color_btn" id="dullred">
@@ -36,7 +37,8 @@
 		<div class="overlay"></div>
 
 		<div class="title">
-			<h1 class="text-lowercase text-center"><span>the</span><br>simon<br>game<br> <i class="fas fa-play fa-sm" onclick="playGame()"></i></h1>
+			<h1 class="text-lowercase text-center"><span>the</span><br>simon<br>game<br> <i class="fas fa-play fa-sm" id="play_btn" onclick="playGame()"></i></h1>
+            <p id="score"></p> 
             <a href="#">how to play</a>
 		</div>
         <audio id="red-beep"><source src="assets/sounds/red.wav" type="audio/wav" /></audio>

@@ -1,11 +1,16 @@
 let colorComp = [];
+let points = 0;
 
 function playGame() {
 
+$("#play_btn").fadeOut(1000);
+document.getElementById("score").innerHTML = "SCORE: " + points;
+console.log(points);
 const colorPool = ["red", "green", "yellow", "blue"];
 let i = 0;
 
-colorComp[colorComp.length] = colorPool[Math.floor(Math.random() * (colorPool.length))];    
+colorComp[colorComp.length] = colorPool[Math.floor(Math.random() * 
+    (colorPool.length))];    
 
 let timer = setInterval(function() {
    if(i === colorComp.length) {
@@ -14,14 +19,19 @@ let timer = setInterval(function() {
 
     let colorId = "#" + colorComp[i];   
     let colorClass = colorComp[i];
+    let soundId = colorId + "-beep";
+    console.log(soundId);
+    console.log(colorId);
 
     $(colorId).addClass(colorClass);
+    $(soundId)[0].play();
+
     setTimeout(function() {
         $(colorId).removeClass(colorClass);
-    }, 1000);
+    }, 800);
    
     i++;
-}, 1200);
+}, 1000);
 
 
 
@@ -37,18 +47,17 @@ let i = 0;
         userArray[userArray.length] = colorClass;
         //console.log(colorId + "/." + colorClass + "/" + soundId);
         console.log(userArray + " vs " + colorComp);
-        console.log(soundId.duration);
 
         $(colorId).addClass(colorClass);
         $(soundId)[0].play();
-        c
+        
         setTimeout(function() {
                 $(colorId).removeClass(colorClass);
-        }, 1000);
+        }, 400);
 
         setTimeout(function() {
                 compareIndex();
-        }, 1500);
+        }, 500);
         
 
         function compareIndex() {
@@ -58,9 +67,13 @@ let i = 0;
                     userArray =[];
                     i = 0;
                     console.log("Array is: " + userArray + " & i:" + i);
+                    points += 5; 
 
-                    playGame();
+                    setTimeout(() => {
+                        playGame();
+                    }, 2000);
                 }
+
                 else {
                     i++;
                 }
