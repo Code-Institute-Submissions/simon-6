@@ -1,3 +1,11 @@
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+nav {
+    position: absolute;
+}
+
 .gamezone {
     height: 100vh;
     display: flex;
@@ -8,11 +16,11 @@
 }
 
 /*----------------------------- Centre Circle Content ----------------------------- */
-
 .centreCircle {
     width: 300px;
     height: 300px;
     background-color: #000;
+    border: 1px solid #fff;
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -33,7 +41,7 @@
 }
 
 #title-content h1 {
-    font-family: "Londrina Solid", sans-serif;
+    font-family: "Londrina Solid", cursive;
     color: #fff;
     line-height: 80%;
     font-weight: 400;
@@ -42,7 +50,6 @@
 }
 
 #title-content p {
-    font-family: "Montserrat", sans-serif;
     font-weight: 400;
     font-size: 20px;
     line-height: 80%;
@@ -50,7 +57,6 @@
 }
 
 a {
-    font-family: "Montserrat", sans-serif;
     text-decoration: underline;
     color: #fff;
     /*border: 1px solid red;*/
@@ -90,7 +96,6 @@ i: hover {
     position: absolute;
     height: 100vh;
     width: 100vw;
-    pointer-events: none;
 }
 
 /*----------------------------- highlighted divs ----------------------------- */
@@ -121,3 +126,47 @@ i: hover {
     box-shadow: 0 0 60px rgba(0, 0, 255, 1.0), 0 0 10px rgba(0, 0, 255, 0.6);
     pointer-events: none;
 }
+
+.unclickable {
+    pointer-events: none;
+}
+
+
+/*----------------------------- Modals ----------------------------- */
+
+.modTitle {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-content: center;
+    justify-content: center;
+    border-top-left-radius: calc(0.4rem - 1px);
+    border-top-right-radius: calc(0.4rem - 1px);
+
+    height: 80px;
+    background-color: #000;
+    color: #fff;
+    font-family: "Londrina Solid", cursive;
+    font-weight: 300;
+    /*border-bottom: 1px solid #dee2e6;*/
+}
+
+.modTitle h5 {
+    font-size: 2em;
+}
+
+.modTitle div {
+    border: 1px solid red;
+}
+
+#xicon {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+.close {
+    color: #fff;
+}
+
+img {
+    max-width: 100px;
+    }
