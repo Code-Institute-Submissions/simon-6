@@ -1,10 +1,14 @@
 let colorComp = [];
 let points = 0;
 
+$("#play_btn").on("mouseover", function() {
+    $("#play_btn").css("color", "blue");
+});
+
 function playGame() {
 
 $("#play_btn").fadeOut(1000);
-document.getElementById("score").innerHTML = "SCORE: " + points;
+
 console.log(points);
 const colorPool = ["red", "green", "yellow", "blue"];
 let i = 0;
@@ -68,6 +72,7 @@ let i = 0;
                     i = 0;
                     console.log("Array is: " + userArray + " & i:" + i);
                     points += 5; 
+                    document.getElementById("score").innerHTML = "SCORE: " + points;
 
                     setTimeout(() => {
                         playGame();
