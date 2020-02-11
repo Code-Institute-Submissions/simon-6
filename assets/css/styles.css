@@ -62,17 +62,15 @@ a {
     /*border: 1px solid red;*/
 }
 
-i: hover {
-
-}
-
-/*----------------------------- simon colours ----------------------------- */
-
+/*----------------------------- Simon Colours ----------------------------- */
 .color_btn {
     height: 50%;
     width: 50%;
     padding: 5px;
-    /*border: 1px solid black;*/
+}
+
+.unclickable {
+    pointer-events: none;
 }
 
 #dullred {
@@ -106,34 +104,24 @@ i: hover {
 .red {
     background-color: rgb(255,0,0);
     box-shadow: 0 0 60px rgba(225, 0, 0, 1.0), 0 0 10px rgba(255, 0, 0, 0.6);
-    pointer-events: none;
 }
 
 .green {
     background: rgb(0,255,0);
     box-shadow: 0 0 60px rgba(0, 255, 0, 1.0), 0 0 10px rgba(0, 255, 0, 0.6);
-    pointer-events: none;
 }
 
 .yellow{
     background-color: rgb(255,255,0);
     box-shadow: 0 0 60px 0 rgba(225, 255, 0, 1.0), 0 0 10px rgba(255, 255, 0, 0.6);
-    pointer-events: none;
 }
 
 .blue {
     background-color: rgb(0,0,255);
     box-shadow: 0 0 60px rgba(0, 0, 255, 1.0), 0 0 10px rgba(0, 0, 255, 0.6);
-    pointer-events: none;
 }
-
-.unclickable {
-    pointer-events: none;
-}
-
 
 /*----------------------------- Modals ----------------------------- */
-
 .modTitle {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -145,18 +133,17 @@ i: hover {
     height: 80px;
     background-color: #000;
     color: #fff;
-    font-family: "Londrina Solid", cursive;
-    font-weight: 300;
-    /*border-bottom: 1px solid #dee2e6;*/
 }
 
 .modTitle h5 {
+    font-family: 'Londrina Solid', cursive;
     font-size: 2em;
+    font-weight: 300;
 }
 
-.modTitle div {
+/*.modTitle div {
     border: 1px solid red;
-}
+}*/
 
 #xicon {
     grid-column-start: 3;
@@ -168,5 +155,18 @@ i: hover {
 }
 
 img {
-    max-width: 100px;
-    }
+    max-width: 80px;
+    padding: 15px;
+}
+
+.row {
+    padding: 20px;
+}
+
+li {
+    font-family: "Londrina Solid", cursive;
+}
+
+li span {
+    font-family: "Montserrat", sans-serif;
+}
