@@ -9,20 +9,44 @@
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Londrina+Solid:300,400|Montserrat:400,500,700&display=swap"
+	<link href="https://fonts.googleapis.com/css?family=Londrina+Solid:300,400|Montserrat:400,500&display=swap"
 		rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
 
 </head>
 
 <body>
-	<nav>
-		<button class = "navbar-toggle">
-    </nav>
+	<nav class="navbar-pos bg-transparent content-outline">
+		<div class="nav-container content-outline">
+			<p id="score" class="content-outline"></p>
+			<button class="content-outline bg-transparent" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars fa-2x content-outline"></i>
+        </button>
+		</div>
+
+		<div class="collapse text-right" id="navbarMenu">
+			<ul class="content-outline">
+				<li class="nav-item">
+					<a class="nav-link" href="#" data-toggle="modal" data-target="#gameInstructions">Instructions</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">High Scores</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#" onclick="location.reload();">Refresh Game</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="#">Feedback</a>
+				</li>
+			</ul>
+		</div>
+
+	</nav>
 
 	<section class="gamezone">
 
- <!------------ Game Colours ------------>
+		<!------------ Game Colours ------------>
 		<div class="color_btn" id="dullred">
 			<div class="lighten unclickable" id="red"></div>
 		</div>
@@ -39,141 +63,130 @@
 			<div class="lighten unclickable" id="blue"></div>
 		</div>
 
-    
+
 		<div class="overlay unclickable"></div>
-    
 
-  <!------------ Centre Circle Title ------------>
+
+		<!------------ Centre Circle Title ------------>
 		<div class="centreCircle">
-            <div id= "title-content">
-                <p class="text-center">the</p> 
-			    <h1 class="text-lowercase text-center">simon game</h1>
-            </div>
-            <i class="fas fa-play fa-3x" id="play_btn" onclick="playGame()"></i>
-            <p id="score"></p> 
-             <a class="" href="#" data-toggle="modal" data-target="#gameInstructions">how to play</a>
+			<div id="title-content">
+				<p class="text-center">the</p>
+				<h1 class="text-lowercase text-center">simon game</h1>
+			</div>
+			<i class="fas fa-play fa-3x content-outline" id="play_btn" onclick="playGame()"></i>
+			<a href="#" data-toggle="modal" data-target="#gameInstructions">how to play</a>
 		</div>
 
- <!------------ How To Play Modal ------------>
-<div class="modal fade" id="gameInstructions" tabindex="-1" role="dialog" aria-labelledby="howToPlay" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-        <div class="modTitle"> 
-            <h5 class="modal-title text-center content-outline" id="howToPlay">instructions</h5>
-            <div class="xicon content-outline">
-                <button type="button" class="close content-outline" data-dismiss="modal" aria-label="Close">
+		<!------------ How To Play Modal ------------>
+		<div class="modal fade" id="gameInstructions" tabindex="-1" role="dialog" aria-labelledby="howToPlay"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modTitle">
+						<h2 class="modal-title text-center content-outline" id="howToPlay">instructions</h2>
+						<div class="xicon content-outline">
+							<button type="button" class="close content-outline" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-            </div>
-        </div>
-
-		<div class="modal-body">
-			<div class="row align-items-center content-outline">
-				<div class="d-none d-sm-inline col-sm-2 content-outline pad-none">
-					<img alt="pointer" src="assets/images/clickplay.png">
-                    </div>
-					<div class="col-12 col-sm-10 content-outline pad-none">
-						<ol>
-							<li>Click play.</li>
-							<p>...And pay attention! One of the colours will light up briefly, beginning
-								a colour sequence that will be added to as game progresses...</p>
-						</ol>
-					</div>
-				</div>
-				<div class="row align-items-center content-outline">
-					<div class="d-none d-sm-inline col-sm-2 content-outline pad-none">
-						<img alt="pointer" src="assets/images/clickcolor.png">
-                    </div>
-						<div class="col-12 col-sm-10 content-outline pad-none">
-							<ol start="2">
-								<li>Repeat the sequence by clicking the colour(s) in order.</li>
-								<p>If you are correct, the game will add another colour to the sequence. Repeat this
-									step for as long as you can muster!</p>
-							</ol>
 						</div>
-
 					</div>
-				</div>
-			</div>
-		</div>
-		</div>
 
-
-		<!------------ Level Up Modal ------------>
-
-		<!------------ Game Over Modal ------------>
-<div class="modal fade" id="gameOver" tabindex="-1" role="dialog" aria-labelledby="howToPlay" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-        <div class="modTitle"> 
-            <h5 class="modal-title text-center content-outline" id="gameEnd">game over!</h5>
-            <div class="xicon content-outline">
-                <button type="button" class="close content-outline" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        </div>
-
-		<div class="modal-body">
-			<div class="row align-items-center content-outline">
-				<div class="d-none d-sm-inline col-sm-2 content-outline pad-none">
-					<img alt="pointer" src="assets/images/clickplay.png">
+					<div class="modal-body">
+						<div class="row align-items-center content-outline">
+							<div class="d-none d-sm-inline col-sm-2 content-outline pad-none">
+								<img alt="pointer" src="assets/images/clickplay.png">
                     </div>
-					<div class="col-12 content-outline pad-none">
-						<ol>
-							<li>Click play.</li>
-							<p>...And pay attention! One of the colours will light up briefly, beginning
-								a colour sequence that will be added to as game progresses...</p>
-						</ol>
-					</div>
-				</div>
-				<div class="row align-items-center content-outline">
-					<div class="d-none d-sm-inline col-sm-2 content-outline pad-none">
-						<img alt="pointer" src="assets/images/clickcolor.png">
+								<div class="col-12 col-sm-10 content-outline pad-none">
+									<ol>
+										<li>Click play.</li>
+										<p>...And pay attention! One of the colours will light up briefly, beginning
+											a colour sequence that will be added to as game progresses...</p>
+									</ol>
+								</div>
+							</div>
+							<div class="row align-items-center content-outline">
+								<div class="d-none d-sm-inline col-sm-2 content-outline pad-none">
+									<img alt="pointer" src="assets/images/clickcolor.png">
                     </div>
-						<div class="col-12 col-sm-10 content-outline pad-none">
-							<ol start="2">
-								<li>Repeat the sequence by clicking the colour(s) in order.</li>
-								<p>If you are correct, the game will add another colour to the sequence. Repeat this
-									step for as long as you can muster!</p>
-							</ol>
+									<div class="col-12 col-sm-10 content-outline pad-none">
+										<ol start="2">
+											<li>Repeat the sequence by clicking the colour(s) in order.</li>
+											<p>If you are correct, the game will add another colour to the sequence.
+												Repeat this
+												step for as long as you can muster!</p>
+										</ol>
+									</div>
+
+								</div>
+							</div>
 						</div>
-
 					</div>
 				</div>
-			</div>
-		</div>
-		</div>
-		<!------------ Game Sounds ------------>
-		<audio id="red-beep">
-			<source src="assets/sounds/red.wav" type="audio/wav" /></audio>
-		<audio id="green-beep">
-			<source src="assets/sounds/green.wav" type="audio/wav" /></audio>
-		<audio id="yellow-beep">
-			<source src="assets/sounds/yellow.wav" type="audio/wav" /></audio>
-		<audio id="blue-beep">
-			<source src="assets/sounds/blue.wav" type="audio/wav" /></audio>
-		</section>
+
+
+				<!------------ Level Up Modal ------------>
+
+				<!------------ Game Over Modal ------------>
+				<div class="modal fade" id="gameOver" tabindex="-1" role="dialog" aria-labelledby="howToPlay"
+					aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modTitle">
+								<h2 class="modal-title text-center content-outline" id="gameEnd">game over!</h2>
+								<div class="xicon content-outline">
+									<button type="button" class="close content-outline" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+								</div>
+							</div>
+
+							<div class="modal-body">
+								<div class="row align-items-center content-outline">
+									<div class="col-12 content-outline pad-none text-center">
+										<h3>you scored:</h3>
+									</div>
+								</div>
+								<div class="row align-items-center content-outline">
+									<div class="col-12 content-outline pad-none text-center">
+										<h4 id="gamescore"></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!------------ Game Sounds ------------>
+				<audio id="red-beep">
+					<source src="assets/sounds/red.wav" type="audio/wav" /></audio>
+				<audio id="green-beep">
+					<source src="assets/sounds/green.wav" type="audio/wav" /></audio>
+				<audio id="yellow-beep">
+					<source src="assets/sounds/yellow.wav" type="audio/wav" /></audio>
+				<audio id="blue-beep">
+					<source src="assets/sounds/blue.wav" type="audio/wav" /></audio>
 
 
 
+	</section>
+	<!------------ Scripts ------------>
+	<!-- Font Awesome -->
+	<script src="https://kit.fontawesome.com/d23270b885.js" crossorigin="anonymous"></script>
 
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
-		<!------------ Scripts ------------>
+	<!-- Bootstrap -->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+	</script>
 
-        <!-- Font Awesome -->
-		<script src="https://kit.fontawesome.com/d23270b885.js" crossorigin="anonymous"></script>
-
-        <!-- JQuery -->
-        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin="anonymous"></script>
-
-        <!-- Bootstrap -->			
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-        <!-- local -->
-		<script src="assets/js/scripts.js"></script>
+	<!-- local -->
+	<script src="assets/js/scripts.js"></script>
 
 
 </body>
