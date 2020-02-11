@@ -69,7 +69,7 @@ let i = 0;
                     i = 0;
                     //console.log("Array is: " + userArray + " & i:" + i);
                     points += 5; 
-                    document.getElementById("score").innerHTML = "SCORE: " + points;
+                    document.getElementById("score").innerHTML = "points: " + points;
 
                     setTimeout(() => {
                         playGame();
@@ -81,7 +81,9 @@ let i = 0;
                 }
             }
             else {
-                 $('#gameOver').modal();
+                console.log(points);
+                document.getElementById("gamescore").innerHTML = points;
+                 $("#gameOver").modal();
             }
                 
         }
