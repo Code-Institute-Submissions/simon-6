@@ -48,11 +48,11 @@ let i = 0;
         //console.log(colorId + "/." + colorClass + "/" + soundId);
         //console.log(userArray + " vs " + colorComp);
 
-        $(colorId).addClass(colorClass);
+        $(colorId).addClass(colorClass + " unclickable");
         $(soundId)[0].play();
         
         setTimeout(function() {
-                $(colorId).removeClass(colorClass);
+                $(colorId).removeClass(colorClass + " unclickable");
         }, 400);
 
         setTimeout(function() {
