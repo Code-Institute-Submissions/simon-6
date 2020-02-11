@@ -1,9 +1,9 @@
 let colorComp = [];
 let points = 0;
 
-$("#play_btn").on("mouseover", function() {
+/*$("#play_btn").on("mouseover", function() {
     $("#play_btn").css("color", "blue");
-});
+});*/
 
 function playGame() {
 $("#play_btn").fadeOut(1000);
@@ -81,8 +81,7 @@ let i = 0;
                 }
             }
             else {
-                 alert("GAME OVER");
-
+                 $('#gameOver').modal();
             }
                 
         }
