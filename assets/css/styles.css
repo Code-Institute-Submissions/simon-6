@@ -57,6 +57,10 @@ nav {
     margin: 0;
 }
 
+#play_btn:hover, #play_btn:active, #play_btn:visited {
+    color: rgb(0,0,255);
+}
+
 a {
     text-decoration: underline;
     color: #fff;
@@ -158,14 +162,14 @@ a {
 }
 
 .close {
-    color: #fff;
+    color: rgb(255,255,255);
     font-size: 3em;
     font-weight: 400;
 }
 
 .close:hover {
     opacity: 1.0;
-    color: #fff;
+    color: rgb(255,255,255);
 }
 
 img {
@@ -178,7 +182,7 @@ li {
 }
 
 li > p {
-    color: blue;
+    color: rgb(0,0,255);
 } 
 .pad-none {
     padding: 0;
