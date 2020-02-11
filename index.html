@@ -58,36 +58,40 @@
 <div class="modal fade" id="gameInstructions" tabindex="-1" role="dialog" aria-labelledby="howToPlay" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-        <div class="modTitle">
-            <div></div>
-            <h5 class="modal-title text-center" id="howToPlay">instructions</h5>
-            <div id="xicon">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div class="modTitle"> 
+            <h5 class="modal-title text-center content-outline" id="howToPlay">instructions</h5>
+            <div class="xicon content-outline">
+                <button type="button" class="close content-outline" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-		</div>
-		</div>
-        
+            </div>
+        </div>
+
 		<div class="modal-body">
-			<div class="row">
-				<div class="col-12 col-sm-4 text-center"><img alt="pointer" src="assets/images/clickplay.png"></div>
-					<div class="col-12 col-sm-8">
+			<div class="row align-items-center content-outline">
+				<div class="d-none d-sm-inline col-sm-2 content-outline pad-none">
+					<img alt="pointer" src="assets/images/clickplay.png">
+                    </div>
+					<div class="col-12 col-sm-10 content-outline pad-none">
 						<ol>
-							<li>Click play.<span> One of the 4 colours will light up briefly, beginning
-							a colour sequence that will extend as the game progresses...</span></li>
+							<li>Click play.</li>
+							<p>...And pay attention! One of the colours will light up briefly, beginning
+								a colour sequence that will be added to as game progresses...</p>
 						</ol>
 					</div>
 				</div>
-
-				<div class="row">
-					<div class="col-12 col-sm-4 text-center"><img alt="pointer" src="assets/images/clickcolor.png"></div>
-						<div class="col-12 col-sm-8">
-							<ol start="2"><li>Respond by clicking on the  colour to mimic the sequence.<span> If
-							you are correct, the game will add another colour to the sequence. Repeat step 2 for as long
-							as you can!<span></li>
+				<div class="row align-items-center content-outline">
+					<div class="d-none d-sm-inline col-sm-2 content-outline pad-none">
+						<img alt="pointer" src="assets/images/clickcolor.png">
+                    </div>
+						<div class="col-12 col-sm-10 content-outline pad-none">
+							<ol start="2">
+								<li>Repeat the sequence by clicking the colour(s) in order.</li>
+								<p>If you are correct, the game will add another colour to the sequence. Repeat this
+									step for as long as you can muster!</p>
 							</ol>
 						</div>
-                    
+
 					</div>
 				</div>
 			</div>
@@ -99,6 +103,7 @@
 
 		<!------------ Game Over Modal ------------>
 
+		<!------------ Game Sounds ------------>
 		<audio id="red-beep">
 			<source src="assets/sounds/red.wav" type="audio/wav" /></audio>
 		<audio id="green-beep">
@@ -113,7 +118,7 @@
 
 
 
-
+		<!------------ Scripts ------------>
 		<script src="https://kit.fontawesome.com/d23270b885.js" crossorigin="anonymous"></script>
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
 			integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
