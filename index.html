@@ -16,12 +16,13 @@
 </head>
 
 <body>
+<!--***************************** NAVIGATION ***********************************-->
 	<nav class="navbar-pos bg-transparent content-outline">
 		<div class="nav-container content-outline">
 			<p id="score" class="content-outline"></p>
 			<button class="content-outline bg-transparent" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="fas fa-bars fa-2x content-outline"></i>
-        </button>
+                <i class="fas fa-bars fa-2x content-outline"></i>
+            </button>
 		</div>
 
 		<div class="collapse text-right" id="navbarMenu">
@@ -43,8 +44,9 @@
 		</div>
 
 	</nav>
-
-	<section class="gamezone">
+<!--***************************** END OF NAVIGATION ***********************************-->
+	
+    <section class="gamezone">
 
 		<!------------ Game Colours ------------>
 		<div class="color_btn" id="dullred">
@@ -133,11 +135,6 @@
 						<div class="modal-content">
 							<div class="modTitle">
 								<h2 class="modal-title text-center content-outline" id="gameEnd">game over!</h2>
-								<div class="xicon content-outline">
-									<button type="button" class="close content-outline" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-								</div>
 							</div>
 
 							<div class="modal-body">
@@ -150,12 +147,13 @@
 									<div class="col-12 content-outline pad-none text-center">
 										<h4 id="gamescore"></h4>
 									</div>
+                                    <button type="button" onclick="location.reload();">Restart Game</button>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
+            
 				<!------------ Game Sounds ------------>
 				<audio id="red-beep">
 					<source src="assets/sounds/red.wav" type="audio/wav" /></audio>
