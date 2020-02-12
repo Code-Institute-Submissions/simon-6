@@ -1,6 +1,6 @@
-/*.content-outline {
+.content-outline {
     border: 1px solid red;
-}*/
+}
 
 body {
     font-family: "Montserrat", sans-serif;
@@ -22,9 +22,6 @@ body {
 }
 
 .nav-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
     font-size: 2em;
 }
 
@@ -195,6 +192,10 @@ h2 {
     grid-column-end: 3;
 }
 
+h3 {
+  font-size: 1.2em;  
+}
+
 h4 {
     font-size: 3em;
     font-weight: 400;
@@ -231,11 +232,8 @@ li > p {
     color: rgb(0,0,255);
 } 
 
-.pad-none {
-    padding: 0;
+.modal-footer {
+    justify-content: center;
 }
-
-
 /*----------------------------- Media Queries ----------------------------- */
 
-@media screen and (min-width )
