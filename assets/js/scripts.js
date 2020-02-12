@@ -1,14 +1,9 @@
 let colorComp = [];
 let points = 0;
 
-/*$("#play_btn").on("mouseover", function() {
-    $("#play_btn").css("color", "blue");
-});*/
-
 function playGame() {
 $("#play_btn").fadeOut(1000);
-$(".color_btn").children().removeClass("unclickable");
-
+    
 const colorPool = ["red", "green", "yellow", "blue"];
 let i = 0;
 
@@ -16,12 +11,14 @@ colorComp[colorComp.length] = colorPool[Math.floor(Math.random() * 
     (colorPool.length))];    
 let timer = setInterval(function() {
    if(i === colorComp.length) {
-      clearInterval(timer);
-   }
+       $(".color_btn").children().removeClass("unclickable");
+       clearInterval(timer);
+    }
 
     let colorId = "#" + colorComp[i];   
     let colorClass = colorComp[i];
     let soundId = colorId + "-beep";
+    
 
     $(colorId).addClass(colorClass);
     $(soundId)[0].play();
@@ -31,6 +28,7 @@ let timer = setInterval(function() {
     }, 800);
    
     i++;
+    
 }, 1000);
 
 }
@@ -51,11 +49,11 @@ let i = 0;
         $(colorId).addClass(colorClass + " unclickable");
         $(soundId)[0].play();
         
-        setTimeout(function() {
+        setTimeout(() => {
                 $(colorId).removeClass(colorClass + " unclickable");
         }, 400);
 
-        setTimeout(function() {
+        setTimeout(() => {
                 compareIndex();
         }, 500);
         
@@ -72,6 +70,7 @@ let i = 0;
                     document.getElementById("score").innerHTML = "points: " + points;
 
                     setTimeout(() => {
+                        $(".color_btn").children().addClass("unclickable");
                         playGame();
                     }, 2000);
                 }
