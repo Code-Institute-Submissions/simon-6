@@ -1,6 +1,6 @@
-.content-outline {
+/*.content-outline {
     border: 1px solid red;
-}
+}*/
 
 body {
     font-family: "Montserrat", sans-serif;
@@ -21,12 +21,11 @@ body {
     width: 100%;
 }
 
-.nav-container {
-    font-size: 2em;
-}
+.nav-container {}
 
-button {
+.toggle-links {
     border: none;
+    font-size: 2em;
 }
 
 .nav-link {
@@ -38,11 +37,11 @@ button {
 
 #score {
     padding-right: 10px;
-    font-size: 1em;
     margin: 0;
     font-family: "Londrina Solid", sans-serif;
     font-weight: 300;
     color: rgb(255,255,255);
+    font-size: 1.5em;
 }
 
 #navbarMenu ul {
