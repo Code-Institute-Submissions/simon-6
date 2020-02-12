@@ -84,6 +84,9 @@ let i = 0;
                 console.log(points);
                 document.getElementById("gamescore").innerHTML = points;
                  $("#gameOver").modal();
+                 $('#gameOver').on('hidden.bs.modal', function () {
+                     location.reload();
+                    });
             }
                 
         }
