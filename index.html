@@ -13,6 +13,12 @@
 		rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/styles.css" />
 
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+	<script type="text/javascript">
+		(function(){
+      emailjs.init("user_ZLm8FPXGvg2bfyfHS3yIq");
+   })();
+	</script>
 </head>
 
 <body>
@@ -146,19 +152,19 @@
 								</div>
 							</div>
 							<div class="modal-body">
-								<div class="row align-items-center content-outline">
-									<div class="col-12 content-outline p-0">
-										<form onsubmit="return sendMail(this);">
+								<!-- Feedback form -->
+								<form class="content-outline" onsubmit="return sendMail(this);">
+									<div class="row align-items-center content-outline">
+										<div class="col-12 content-outline p-0">
 											<input type="text" name="name" class="form-control mb-2" id="fullname" placeholder="Name" required/>
 											<input type="text" name="emailaddress" class="form-control mb-2" id="emailaddress" placeholder="Email" required/>
-											<textarea rows="5" name="projectsummary" class="form-control mb-2" id="projectsummary" placeholder="Add Comments..." required></textarea>
-										</form>
+											<textarea rows="5" name="feedback" class="form-control mb-2" id="feedback" placeholder="Add Comments..." required></textarea>
+										</div>
 									</div>
-								</div>
-								<div class="row modal-footer">
-									<button type="submit" class="btn btn-primary center-block">Send Feedback</button>
-								</div>
-
+									<div class="row modal-footer content-outline">
+										<button type="submit" class="btn btn-primary">Send Feedback</button>
+									</div>
+								</form>
 							</div>
 						</div>
 					</div>
@@ -166,7 +172,7 @@
 			</div>
 
 			<!------------ Level Up Modal ------------>
-
+            
 			<!------------ Game Over Modal ------------>
 			<div class="modal fade" id="gameOver" tabindex="-1" role="dialog" aria-labelledby="howToPlay"
 				aria-hidden="true">
@@ -187,7 +193,7 @@
 									<h4 id="gamescore"></h4>
 								</div>
 							</div>
-							<div class="row modal-footer">
+							<div class="row modal-footer content-outline">
 								<button class="btn btn-primary" type="button" class="close content-outline"
                                     data-dismiss="modal" aria-label="Close"><i class="pr-2 fas fa-play"></i>Replay!</button>
 							</div>
