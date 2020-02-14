@@ -110,12 +110,18 @@ $(".color_btn").children().click(function() {
 
 
 function sendMail(feedbackForm) {
+    console.log('working');
     emailjs.send("gmail", "feedback", {
         "from_name": feedbackForm.name.value, 
         "from_email": feedbackForm.emailaddress.value, 
         "user_feedback": feedbackForm.feedback.value 
     })
-        return false;
+   .then (
+       function(response) {
+           console.log('HEllo', response);
+            $('#feedbackModal').reload();
+       }
+   ); return false;
 }
  
  
