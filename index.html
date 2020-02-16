@@ -29,7 +29,7 @@
 				<ul class="content-outline text-lowercase p-2 px-md-5 d-flex justify-content-around flex-wrap">
 					<li class="nav-item  text-center content-outline">
 						<a class="nav-link" href="#" data-toggle="modal"
-							data-target="#gameInstructions"><i class="d-none d-md-inline px-2 fas fa-tasks"></i>Instructions</a>
+							data-target="#gameSettings"><i class="d-none d-md-inline px-2 fas fa-cog"></i>Settings</a>
 					</li>
 					<li class="nav-item  text-center content-outline">
 						<a class="nav-link" href="#"><i class="d-none d-md-inline px-2 fas fa-poll"></i>High Scores</a>
@@ -91,7 +91,6 @@
 		</div>
 
 		<!--***************************** MODALS ***********************************-->
-
 		<!------------ How To Play Modal ------------>
 		<div class="modal fade" id="gameInstructions" tabindex="-1" role="dialog" aria-labelledby="howToPlay"
 			aria-hidden="true">
@@ -137,14 +136,15 @@
 						</div>
 					</div>
 				</div>
-                
-				<!------------ Feedback Modal ------------>
-				<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedback"
+
+
+				<!------------ Settings Modal------------>
+				<div class="modal fade" id="gameSettings" tabindex="-1" role="dialog" aria-labelledby="changeDefaults"
 					aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
 							<div class="modTitle">
-								<h2 class="modal-title text-center content-outline" id="feedback">feedback</h2>
+								<h2 class="modal-title text-center content-outline" id="howToPlay">settings</h2>
 								<div class="xicon content-outline">
 									<button type="button" class="close content-outline" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -152,66 +152,113 @@
 								</div>
 							</div>
 							<div class="modal-body">
-								<!-- Feedback form -->
-								<form class="content-outline" onsubmit="return sendMail(this);">
-									<div class="row align-items-center content-outline">
+								<form action="">
+									<div class="row justify-content-center align-items-center content-outline">
+
 										<div class="col-12 content-outline p-0">
-											<input type="text" name="name" class="form-control mb-2" id="fullname" placeholder="Name" required/>
-											<input type="text" name="emailaddress" class="form-control mb-2" id="emailaddress" placeholder="Email" required/>
-											<textarea rows="5" name="feedback" class="form-control mb-2" id="feedback" placeholder="Add Comments..." required></textarea>
-										</div>
-									</div>
-									<div class="row modal-footer content-outline">
-										<button class="btn btn-primary content-outline" type="submit" data-dismiss="modal" aria-label="Close"></i>Send Feedback</button>
-									</div>
-								</form>
+
+											<label for="sounds" class="leadtext">Game Sounds <i class="fas fa-music"></i></label><br>
+											<select id="sounds" name="sounds" class="d-block py-2 mb-2">
+    <option value="default" selected>Simon Beeps</option>
+    <option value="animals">Farm Animals</option>
+    <option value="hello">Voices</option>
+    <option value="bohemian">None</option>
+  </select>
+
+											<label for="level" class="leadtext">Start Level:</label><br>
+											<select id="level" name="level" class="d-block py-2 mb-2">
+    <option value="default" selected>Easy</option>
+    <option value="levelone">Medium</option>
+    <option value="level2">Hard</option>
+  </select>
+
+
 							</div>
 						</div>
+
+<div class="row modal-footer justify-content-center content-outline">
+												<input type="submit" class="btn btn-primary">
+									</div>
+								</form>
 					</div>
 				</div>
 			</div>
-            
-			<!------------ Level Up Modal ------------>
-            
-			<!------------ Game Over Modal ------------>
-			<div class="modal fade" id="gameOver" tabindex="-1" role="dialog" aria-labelledby="howToPlay"
-				aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content">
-						<div class="modTitle">
-							<h2 class="modal-title text-center content-outline" id="gameEnd">game over!</h2>
+		</div>
+		</div>
+		<!------------ Feedback Modal ------------>
+		<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedback"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modTitle">
+						<h2 class="modal-title text-center content-outline" id="feedback">feedback</h2>
+						<div class="xicon content-outline">
+							<button type="button" class="close content-outline" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
 						</div>
-
-						<div class="modal-body">
+					</div>
+					<div class="modal-body">
+						<!-- Feedback form -->
+						<form class="content-outline" onsubmit="return sendMail(this);">
 							<div class="row align-items-center content-outline">
-								<div class="col-12 content-outline p-0 text-center">
-									<h3 class="leadtext">you scored:</h3>
-								</div>
-							</div>
-							<div class="row align-items-center content-outline">
-								<div class="col-12 content-outline p-0 text-center">
-									<h4 id="gamescore"></h4>
+								<div class="col-12 content-outline p-0">
+									<input type="text" name="name" class="form-control mb-2 form-data" id="fullname" placeholder="Name" required/>
+									<input type="text" name="emailaddress" class="form-control mb-2 form-data" id="emailaddress" placeholder="Email" required/>
+									<textarea rows="5" name="feedback" class="form-control mb-2 form-data" id="feedback" placeholder="Add Comments..." required></textarea>
 								</div>
 							</div>
 							<div class="row modal-footer content-outline">
-								<button class="btn btn-primary content-outline" type="button" data-dismiss="modal" aria-label="Close"><i class="pr-2 fas fa-play"></i>Replay!</button>
+								<button class="btn btn-primary justify-content-center content-outline" type="submit" aria-label="Close"></i>Send Feedback</button>
 							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<!------------ Level Up Modal ------------>
+
+		<!------------ Game Over Modal ------------>
+		<div class="modal fade" id="gameOver" tabindex="-1" role="dialog" aria-labelledby="howToPlay"
+			aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modTitle">
+						<h2 class="modal-title text-center content-outline" id="gameEnd">game over!</h2>
+					</div>
+
+					<div class="modal-body">
+						<div class="row align-items-center content-outline">
+							<div class="col-12 content-outline p-0 text-center">
+								<h3 class="leadtext">you scored:</h3>
+							</div>
+						</div>
+						<div class="row align-items-center content-outline">
+							<div class="col-12 content-outline p-0 text-center">
+								<h4 id="gamescore"></h4>
+							</div>
+						</div>
+						<div class="row modal-footer justify-content-center content-outline">
+							<button class="btn btn-primary content-outline" type="button" data-dismiss="modal" aria-label="Close"><i class="pr-2 fas fa-play"></i>Replay!</button>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
-			<!--***************************** END OF MODALS ***********************************-->
+		<!--***************************** END OF MODALS ***********************************-->
 
-			<!------------ Game Sounds ------------>
-			<audio id="red-beep">
-				<source src="assets/sounds/red.wav" type="audio/wav" /></audio>
-			<audio id="green-beep">
-				<source src="assets/sounds/green.wav" type="audio/wav" /></audio>
-			<audio id="yellow-beep">
-				<source src="assets/sounds/yellow.wav" type="audio/wav" /></audio>
-			<audio id="blue-beep">
-				<source src="assets/sounds/blue.wav" type="audio/wav" /></audio>
+		<!------------ Game Sounds ------------>
+		<audio id="red-beep">
+			<source src="assets/sounds/red.wav" type="audio/wav" /></audio>
+		<audio id="green-beep">
+			<source src="assets/sounds/green.wav" type="audio/wav" /></audio>
+		<audio id="yellow-beep">
+			<source src="assets/sounds/yellow.wav" type="audio/wav" /></audio>
+		<audio id="blue-beep">
+			<source src="assets/sounds/blue.wav" type="audio/wav" /></audio>
 
 	</section>
 
