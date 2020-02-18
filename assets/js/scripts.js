@@ -53,7 +53,7 @@ setInterval() iterates through the colorComp array.
 
 
 // USER INPUT
-    let i = 0;
+    let i = 0; //must be declared outside the function to allow i to increment everytime a user clicks
 $(".color_btn").children().click(function() {
 
     let colorClass = this.id;
@@ -78,8 +78,8 @@ $(".color_btn").children().click(function() {
 
     function compareIndex() {
         if(userArray[i] === colorComp[i]) {
-            console.log("The indexes match");
-            if(userArray.length === colorComp.length) { // if the arrays match aka 'WIN', clear the user array ready for the next round
+            //console.log("The indexes match");
+            if(userArray.length === colorComp.length) { // if tboth arrays match, clear the user array ready for the next round
             console.log(userArray[i] + " vs " + colorComp[i]);
                 userArray = [];
                 i = 0;
@@ -102,6 +102,7 @@ $(".color_btn").children().click(function() {
             console.log(points);
             document.getElementById("gamescore").innerHTML = points;
                 $('#gameOver').modal();
+                addScore(points);
                 $('#gameOver').on('hide.bs.modal', function () {
                     location.reload();
                 }).modal('show');
@@ -133,21 +134,26 @@ function sendMail(feedbackForm) {
 
 
 function addScore(points) {
-    let highScores = localStorage.getItem("scores");
-    if(highScores.length === 0) { 
-            highScores = [0, 0, 0, 0, 0];
-    };
-    
-    if (points < highScores[4]) {
-        return;
+    let highScores_Str = localStorage.getItem("scores");
+    if(highScores_Str === null) { 
+            highScores_Str = "0,0,0,0,0";
     }
+
+    let highScores_Arr = highScores_Str.split(',').map(function(item){
+        return parseInt(item);
+    });
     
-    else {
-        highScores.push(points);
-        highScores.sort(function(a, b){return b - a});
-        highScores.pop();
-        console.log(highScores);
-        localStorage.setItem("scores", highScores);
+
+
+    if (points < highScores_Arr[4]) {
+        console.log("good try");
+    } else {
+        console.log(highScores_Arr);
+        highScores_Arr.splice(4, 1, points);
+        highScores_Arr.sort(function(a, b){return b - a});
+      
+        console.log(highScores_Arr);
+        localStorage.setItem("scores", highScores_Arr);
         }
     }
 
