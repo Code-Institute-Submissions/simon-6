@@ -1,7 +1,8 @@
 
 let colorComp = [],
     points = 0,
-    userArray = [];
+    userArray = [],
+    highScores = [];
 
 let stages = {
     "stageOne": 1000,
@@ -52,14 +53,15 @@ setInterval() iterates through the colorComp array.
 
 
 // USER INPUT
-$(".color_btn").children().click(function() {
     let i = 0;
+$(".color_btn").children().click(function() {
+
     let colorClass = this.id;
     let colorId = "#" + this.id;
     let soundId = colorId + "-beep";
     userArray[userArray.length] = colorClass;
     //console.log(colorId + "/." + colorClass + "/" + soundId);
-    //console.log(userArray + " vs " + colorComp);
+    console.log(userArray + " vs " + colorComp);
 
     $(colorId).addClass(colorClass + " unclickable");
     $(soundId)[0].play();
@@ -77,10 +79,11 @@ $(".color_btn").children().click(function() {
     function compareIndex() {
         if(userArray[i] === colorComp[i]) {
             console.log("The indexes match");
-            if(userArray.length === colorComp.length) {
-                userArray =[];
+            if(userArray.length === colorComp.length) { // if the arrays match aka 'WIN', clear the user array ready for the next round
+            console.log(userArray[i] + " vs " + colorComp[i]);
+                userArray = [];
                 i = 0;
-                //console.log("Array is: " + userArray + " & i:" + i);
+                console.log("Array is: " + userArray + " & i:" + i);
                 points += 5; 
                 document.getElementById("score").innerHTML = "points: " + points;
 
@@ -91,17 +94,17 @@ $(".color_btn").children().click(function() {
             }
 
             else {
+                console.log(i);
                 i++;
             }
         }
         else {
             console.log(points);
             document.getElementById("gamescore").innerHTML = points;
-                $("#gameOver").modal();
-                //  Reload the page when the modal is closed regardless of how it is closed
-                $('#gameOver').on('hidden.bs.modal', function () {
+                $('#gameOver').modal();
+                $('#gameOver').on('hide.bs.modal', function () {
                     location.reload();
-                });
+                }).modal('show');
         }
             
     }
@@ -118,8 +121,8 @@ function sendMail(feedbackForm) {
     })
    .then (
        function(response) {
-           console.log('HEllo', response);
-            $('#feedbackModal').reload();
+           $('.form-data').val('');
+           $('#feedbackModal').modal('hide');
        }
    ); return false;
 }
@@ -127,6 +130,27 @@ function sendMail(feedbackForm) {
  
 
             
+
+
+function addScore(points) {
+    let highScores = localStorage.getItem("scores");
+    if(highScores.length === 0) { 
+            highScores = [0, 0, 0, 0, 0];
+    };
+    
+    if (points < highScores[4]) {
+        return;
+    }
+    
+    else {
+        highScores.push(points);
+        highScores.sort(function(a, b){return b - a});
+        highScores.pop();
+        console.log(highScores);
+        localStorage.setItem("scores", highScores);
+        }
+    }
+
 
     
 
