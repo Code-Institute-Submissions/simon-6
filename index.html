@@ -31,8 +31,9 @@
 						<a class="nav-link" href="#" data-toggle="modal"
 							data-target="#gameSettings"><i class="d-none d-md-inline px-2 fas fa-cog"></i>Settings</a>
 					</li>
-					<li class="nav-item  text-center content-outline">
-						<a class="nav-link" href="#"data-toggle="modal" data-target="#gameScores"><i class="d-none d-md-inline px-2 fas fa-poll"></i>High Scores</a>
+					<li class="nav-item text-center content-outline">
+						<a class="nav-link" id="trigger" href="#" data-toggle="modal"
+							data-target="#highScores"><i class="d-none d-md-inline px-2 fas fa-poll"></i>High Scores</a>
 					</li>
 					<li class="nav-item text-center content-outline">
 						<a class="nav-link content-outline" href="#"
@@ -164,7 +165,7 @@
     <option value="hello">Voices</option>
     <option value="bohemian">None</option>
   </select>
-  
+
 											<label for="level" class="leadtext">Start Level:</label><br>
 											<select id="level" name="level" class="d-block py-2 mb-2">
     <option value="default" selected>Easy</option>
@@ -219,33 +220,50 @@
 		</div>
 
 		<!------------ High Scores Modal ------------>
-        <div class="modal fade" id="gameScores" tabindex="-1" role="dialog" aria-labelledby="gameHighScores"
-			aria-hidden="true">
+		<div class="modal fade" id="highScores" tabindex="-1" role="dialog" aria-labelledby="scores" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
 					<div class="modTitle">
-						<h2 class="modal-title text-center content-outline" id="gameScore">high scores</h2>
+						<h2 class="modal-title text-center content-outline" id="recentScores">high scores</h2>
+						<div class="xicon content-outline">
+							<button type="button" class="close content-outline" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+						</div>
 					</div>
 
 					<div class="modal-body">
 						<div class="row align-items-center content-outline">
 							<div class="col-12 content-outline p-0 text-center">
 								<h3 class="leadtext">top 5 scores:</h3>
+								<table class="m-auto">
+									<tr>
+										<td class="text-center" id="1st">no data currently available</td>
+									</tr>
+									<tr>
+										<td class="text-center" id="2nd">no data currently available</td>
+									</tr>
+									<tr>
+										<td class="text-center" id="3rd">no data currently available</td>
+									</tr>
+									<tr>
+										<td class="text-center" id="4th">no data currently available</td>
+									</tr>
+									<tr>
+										<td class="text-center" id="5th">no data currently available</td>
+									</tr>
+								</table>
 							</div>
 						</div>
 						<div class="row align-items-center content-outline">
 							<div class="col-12 content-outline p-0 text-center">
-								<h4 id="gamescore"></h4>
+								<h4 id=""></h4>
 							</div>
-						</div>
-						<div class="row modal-footer justify-content-center content-outline">
-							<button class="btn btn-primary" type="button" class="close content-outline" data-dismiss="modal" aria-label="Close"><i class="pr-2 fas fa-play"></i>Replay!</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-        
 		<!------------ Game Over Modal ------------>
 		<div class="modal fade" id="gameOver" tabindex="-1" role="dialog" aria-labelledby="howToPlay"
 			aria-hidden="true">
@@ -311,4 +329,5 @@
 
 
 </body>
+
 </html>
