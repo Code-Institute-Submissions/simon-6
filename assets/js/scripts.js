@@ -5,16 +5,8 @@ let colorComp = [],
     highScores_Str,
     highScores_Arr;
 
-let stages = {
-    stageOne: 1000,
-    stageTwo: 800,
-    stageThree: 500
-}
-
-
-
 /**
- playgame() takes a 'colour' at random from the ColorPool array
+ playgame() takes a value at random from the ColorPool array
  and adds it as the last index of the colorComp array.
  */
 function playGame() {
@@ -105,7 +97,7 @@ $(".color_btn").children().click(function () {
                 }, 1000);
             }
 
-            //if the values match but the arrays are not the same length, allow the user to add another colour.
+            //if the values match but the arrays are not the same length, allows the user to add the next colour.
             else {
                 i++;
             }
@@ -142,6 +134,12 @@ function sendMail(feedbackForm) {
 }
 
 /************************ HIGH SCORES ***********************/
+ sounds.forEach(sound => {
+	  console.log(sound)
+	  $("#myDropdown").append(`
+	  <option value="assets/sounds/${sound.normalSound}">${sound.name}</option>`)
+  });
+
 function getScores() {
     highScores_Str = localStorage.getItem("scores"); //Returns a string
     if (highScores_Str === null) {
@@ -182,10 +180,10 @@ $("#gameSound").change(function() {
     let customIndex;
     let soundSetting = $("#gameSound").val();
     const sounds = {
-        red: ["assets/sounds/red.wav", "audio/wav", "assets/sounds/cow.mp3", "", "", "", ""],
+        red: [["assets/sounds/red.wav", "audio/wav"], ["assets/sounds/cow.wav", "audio/wav"], ["", ""], ["", ""]],
         green: ["assets/sounds/green.wav", "audio/wav", "assets/sounds/horse.mp3", "audio/mp3", "", "", "", ""],
         yellow: ["assets/sounds/yellow.wav", "audio/wav", "assets/sounds/goat.mp3", "audio/mp3", "", "", "", ""],
-        blue: ["assets/sounds/blue.wav", "audio/wav", "assets/sounds/chicken.mp3" "audio/mp3", "", "", "", ""]
+        blue: ["assets/sounds/blue.wav", "audio/wav", "assets/sounds/chicken.mp3", "audio/mp3", "", "", "", ""]
     };
     
     if (soundSetting.includes("default") === true) {
@@ -203,19 +201,17 @@ $("#gameSound").change(function() {
     else {
         customIndex = 6;
     }
-$("#red-beep").children().setAttribute("src", sounds.red[customIndex]);
-$("#red-beep").children().setAttribute("type", sounds.red[customIndex + 1]);
-$("#green-beep").children().setAttribute("src", sounds.green[customIndex]);
-$("#green-beep").children().setAttribute("type", sounds.green[customIndex + 1]);
-$("#yellow-beep").children().setAttribute("src", sounds.yellow[customIndex]);
-$("#yellow-beep").children().setAttribute("type", sounds.yellow[customIndex + 1]);
-$("#blue-beep").children().setAttribute("src", sounds.blue[customIndex]);
-$("#blue-beep").children().setAttribute("type", sounds.blue[customIndex + 1]);
+
+$("#red-beep").children().setAttribute("src", sounds.red[customIndex[0]]);
+$("#red-beep").children().setAttribute("type", sounds.red[customIndex[1]]);
+$("#green-beep").children().setAttribute("src", sounds.green[customIndex[0]]);
+$("#green-beep").children().setAttribute("type", sounds.green[customIndex[1]]);
+$("#yellow-beep").children().setAttribute("src", sounds.yellow[customIndex[0]]);
+$("#yellow-beep").children().setAttribute("type", sounds.yellow[customIndex[1]]);
+$("#blue-beep").children().setAttribute("src", sounds.blue[customIndex[0]]);
+$("#blue-beep").children().setAttribute("type", sounds.blue[customIndex[1]]);
 
 });
-
-
-
 
 
 
