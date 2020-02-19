@@ -27,12 +27,12 @@
 		<nav class="navbar-pos content-outline">
 			<div class="collapse" id="navbarMenu">
 				<ul class="content-outline text-lowercase p-2 px-md-5 d-flex justify-content-around flex-wrap">
-					<li class="nav-item  text-center content-outline">
+					<li class="nav-item text-center content-outline">
 						<a class="nav-link" href="#" data-toggle="modal"
 							data-target="#gameSettings"><i class="d-none d-md-inline px-2 fas fa-cog"></i>Settings</a>
 					</li>
 					<li class="nav-item text-center content-outline">
-						<a class="nav-link" id="trigger" href="#" data-toggle="modal"
+						<a class="nav-link" href="#" id="trigger" data-toggle="modal"
 							data-target="#highScores"><i class="d-none d-md-inline px-2 fas fa-poll"></i>High Scores</a>
 					</li>
 					<li class="nav-item text-center content-outline">
@@ -138,7 +138,6 @@
 					</div>
 				</div>
 
-
 				<!------------ Settings Modal------------>
 				<div class="modal fade" id="gameSettings" tabindex="-1" role="dialog" aria-labelledby="changeDefaults"
 					aria-hidden="true">
@@ -158,12 +157,12 @@
 
 										<div class="col-12 content-outline p-0">
 
-											<label for="sounds" class="leadtext">Game Sounds <i class="fas fa-music"></i></label><br>
-											<select id="sounds" name="sounds" class="d-block mb-4">
+											<label for="gameSound" class="leadtext">Game Sounds <i class="fas fa-music"></i></label><br>
+											<select id="gameSound" name="sounds" class="d-block mb-4">
     <option value="default" class="py-3" selected>Simon Beeps</option>
-    <option value="animals" class="content-outline">Farm Animals</option>
-    <option value="hello">Voices</option>
-    <option value="bohemian">None</option>
+    <option value="farm" class="content-outline">Farm Animals</option>
+    <option value="flatulence">Flatulance</option>
+    <option value="none">No Sound</option>
   </select>
 
 											<label for="level" class="leadtext">Start Level:</label><br>
@@ -173,12 +172,11 @@
     <option value="level2">Hard</option>
   </select>
 
-
 										</div>
 									</div>
 
 									<div class="row modal-footer justify-content-center content-outline">
-										<input type="submit" class="btn btn-primary">
+										<button type="submit" class="btn btn-primary">OK</button>
 									</div>
 								</form>
 							</div>
@@ -235,22 +233,22 @@
 					<div class="modal-body">
 						<div class="row align-items-center content-outline">
 							<div class="col-12 content-outline p-0 text-center">
-								<h3 class="leadtext">top 5 scores:</h3>
-								<table class="m-auto">
+								<h3 class="leadtext mb-3">top 5 scores:</h3>
+								<table class="mx-auto">
 									<tr>
-										<td class="text-center" id="1st">no data currently available</td>
+										<td class="text-center" id="1st"></td>
 									</tr>
 									<tr>
-										<td class="text-center" id="2nd">no data currently available</td>
+										<td class="text-center" id="2nd"></td>
 									</tr>
 									<tr>
-										<td class="text-center" id="3rd">no data currently available</td>
+										<td class="text-center" id="3rd"></td>
 									</tr>
 									<tr>
-										<td class="text-center" id="4th">no data currently available</td>
+										<td class="text-center" id="4th"></td>
 									</tr>
 									<tr>
-										<td class="text-center" id="5th">no data currently available</td>
+										<td class="text-center" id="5th"></td>
 									</tr>
 								</table>
 							</div>
@@ -264,6 +262,7 @@
 				</div>
 			</div>
 		</div>
+
 		<!------------ Game Over Modal ------------>
 		<div class="modal fade" id="gameOver" tabindex="-1" role="dialog" aria-labelledby="howToPlay"
 			aria-hidden="true">

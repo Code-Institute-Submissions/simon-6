@@ -6,10 +6,12 @@ let colorComp = [],
     highScores_Arr;
 
 let stages = {
-    "stageOne": 1000,
-    "stageTwo": 800,
-    "stageThree": 500
+    stageOne: 1000,
+    stageTwo: 800,
+    stageThree: 500
 }
+
+
 
 /**
  playgame() takes a 'colour' at random from the ColorPool array
@@ -171,15 +173,39 @@ $("#trigger").click(function() {
 
 });
 
+//****************** CUSTOMISE GAME *****************
 
 
 
 
+$("#gameSound").change(function() {
+    let customIndex;
+    let soundSetting = $("#gameSound").val();
+    const sounds = {
+        red: ["src='assets/sounds/red.wav' type='audio/wav'", "src='assets/sounds/cow.mp3' type='audio/mp3'", "", ""],
+        green: ["src='assets/sounds/green.wav' type='audio/wav'", "src='assets/sounds/horse.mp3' type='audio/mp3'", ""],
+        yellow: ["src='assets/sounds/yellow.wav' type='audio/wav'", "src='assets/sounds/goat.mp3' type='audio/mp3'", ""],
+        blue: ["src='assets/sounds/blue.wav' type='audio/wav'", "src='assets/sounds/chicken.mp3' type='audio/mp3'", ""]
+    };
+    
+    if (soundSetting.includes("default") === true) {
+        customIndex = 0;
+    }  
 
+    else if (soundSetting.includes("farm") === true) {
+        customIndex = 1;
+    }
 
+    else if (soundSetting.includes("flatulance") === true) {
+        customIndex = 2;
+    }
 
+    else {
+        customIndex = 3;
+    }
 
-
+console.log(sounds.red[customIndex]);
+});
 
 
 
