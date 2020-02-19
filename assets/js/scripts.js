@@ -44,9 +44,11 @@ function playGame() {
         let soundId = colorId + "-beep";
 
         $(colorId).addClass(colorClass);
+        $(colorId).parent().addClass("layer");
         $(soundId)[0].play();
         setTimeout(function () {
             $(colorId).removeClass(colorClass);
+            $(colorId).parent().removeClass("layer");
         }, 800);
 
         i++;
@@ -69,10 +71,12 @@ $(".color_btn").children().click(function () {
     console.log(userArray + " vs " + colorComp);
 
     $(colorId).addClass(colorClass + " unclickable");
+    $(colorId).parent().addClass("layer");
     $(soundId)[0].play();
 
     setTimeout(() => {
         $(colorId).removeClass(colorClass + " unclickable");
+        $(colorId).parent().removeClass("layer");
     }, 400);
 
     setTimeout(() => {
@@ -173,19 +177,15 @@ $("#trigger").click(function() {
 
 });
 
-//****************** CUSTOMISE GAME *****************
-
-
-
-
+//****************** GAME CUSTOMISATION *****************
 $("#gameSound").change(function() {
     let customIndex;
     let soundSetting = $("#gameSound").val();
     const sounds = {
-        red: ["src='assets/sounds/red.wav' type='audio/wav'", "src='assets/sounds/cow.mp3' type='audio/mp3'", "", ""],
-        green: ["src='assets/sounds/green.wav' type='audio/wav'", "src='assets/sounds/horse.mp3' type='audio/mp3'", ""],
-        yellow: ["src='assets/sounds/yellow.wav' type='audio/wav'", "src='assets/sounds/goat.mp3' type='audio/mp3'", ""],
-        blue: ["src='assets/sounds/blue.wav' type='audio/wav'", "src='assets/sounds/chicken.mp3' type='audio/mp3'", ""]
+        red: ["assets/sounds/red.wav", "audio/wav", "assets/sounds/cow.mp3", "", "", "", ""],
+        green: ["assets/sounds/green.wav", "audio/wav", "assets/sounds/horse.mp3", "audio/mp3", "", "", "", ""],
+        yellow: ["assets/sounds/yellow.wav", "audio/wav", "assets/sounds/goat.mp3", "audio/mp3", "", "", "", ""],
+        blue: ["assets/sounds/blue.wav", "audio/wav", "assets/sounds/chicken.mp3" "audio/mp3", "", "", "", ""]
     };
     
     if (soundSetting.includes("default") === true) {
@@ -193,18 +193,25 @@ $("#gameSound").change(function() {
     }  
 
     else if (soundSetting.includes("farm") === true) {
-        customIndex = 1;
-    }
-
-    else if (soundSetting.includes("flatulance") === true) {
         customIndex = 2;
     }
 
-    else {
-        customIndex = 3;
+    else if (soundSetting.includes("flatulance") === true) {
+        customIndex = 4;
     }
 
-console.log(sounds.red[customIndex]);
+    else {
+        customIndex = 6;
+    }
+$("#red-beep").children().setAttribute("src", sounds.red[customIndex]);
+$("#red-beep").children().setAttribute("type", sounds.red[customIndex + 1]);
+$("#green-beep").children().setAttribute("src", sounds.green[customIndex]);
+$("#green-beep").children().setAttribute("type", sounds.green[customIndex + 1]);
+$("#yellow-beep").children().setAttribute("src", sounds.yellow[customIndex]);
+$("#yellow-beep").children().setAttribute("type", sounds.yellow[customIndex + 1]);
+$("#blue-beep").children().setAttribute("src", sounds.blue[customIndex]);
+$("#blue-beep").children().setAttribute("type", sounds.blue[customIndex + 1]);
+
 });
 
 
