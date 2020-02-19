@@ -134,11 +134,6 @@ function sendMail(feedbackForm) {
 }
 
 /************************ HIGH SCORES ***********************/
- sounds.forEach(sound => {
-	  console.log(sound)
-	  $("#myDropdown").append(`
-	  <option value="assets/sounds/${sound.normalSound}">${sound.name}</option>`)
-  });
 
 function getScores() {
     highScores_Str = localStorage.getItem("scores"); //Returns a string
@@ -164,9 +159,9 @@ function addScore(points) {
     }
 }
 
-
 $("#trigger").click(function() {
     highScores_Arr = getScores();
+    console.log(highScores_Arr);
     $("#1st").html(highScores_Arr[0]);
     $("#2nd").html(highScores_Arr[1]);
     $("#3rd").html(highScores_Arr[2]);
@@ -194,7 +189,7 @@ $("#gameSound").change(function() {
         customIndex = 2;
     }
 
-    else if (soundSetting.includes("flatulance") === true) {
+    else if (soundSetting.includes("flat") === true) {
         customIndex = 4;
     }
 
