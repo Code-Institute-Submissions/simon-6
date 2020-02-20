@@ -38,7 +38,7 @@ function playGame() {
         console.log($(soundId).children().attr("src"));
         $(colorId).addClass(colorClass);
         $(colorId).parent().addClass("layer");
-        $(soundId)[1].play();
+        $(soundId)[0].play();
         setTimeout(function () {
             $(colorId).removeClass(colorClass);
             $(colorId).parent().removeClass("layer");
@@ -176,10 +176,10 @@ $("#gameSound").change(function() {
     let customIndex;
     let soundSetting = $("#gameSound").val();
     const sounds = {
-        red: [["assets/sounds/red.wav", "audio/wav"], ["assets/sounds/cow.wav", "audio/wav"], ["", ""], ["", ""]],
-        green: [["assets/sounds/green.wav", "audio/wav"], ["assets/sounds/horse.wav", "audio/wav"], ["", ""], ["", ""]],
-        yellow: [ ["assets/sounds/yellow.wav", "audio/wav"], ["assets/sounds/goat.wav", "audio/wav"], ["", ""], ["", ""]],
-        blue: [["assets/sounds/blue.wav", "audio/wav"], ["assets/sounds/pig.wav", "audio/wav"], ["", ""], ["", ""]]
+        red: [["/assets/sounds/red.wav", "audio/wav"], ["assets/sounds/cow.wav", "audio/wav"], ["", ""], ["", ""]],
+        green: [["/assets/sounds/green.wav", "audio/wav"], ["assets/sounds/horse.wav", "audio/wav"], ["", ""], ["", ""]],
+        yellow: [ ["/assets/sounds/yellow.wav", "audio/wav"], ["assets/sounds/goat.wav", "audio/wav"], ["", ""], ["", ""]],
+        blue: [["/assets/sounds/blue.wav", "audio/wav"], ["assets/sounds/pig.wav", "audio/wav"], ["", ""], ["", ""]]
     };
     
     if (soundSetting.includes("default") === true) {
