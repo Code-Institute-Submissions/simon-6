@@ -35,6 +35,7 @@ function playGame() {
         let colorClass = colorComp[i];
         let soundId = colorId + "-beep";
 
+        console.log($(soundId).children().attr("src"));
         $(colorId).addClass(colorClass);
         $(colorId).parent().addClass("layer");
         $(soundId)[0].play();
@@ -176,9 +177,9 @@ $("#gameSound").change(function() {
     let soundSetting = $("#gameSound").val();
     const sounds = {
         red: [["assets/sounds/red.wav", "audio/wav"], ["assets/sounds/cow.wav", "audio/wav"], ["", ""], ["", ""]],
-        green: ["assets/sounds/green.wav", "audio/wav", "assets/sounds/horse.wav", "audio/wav", "", "", "", ""],
-        yellow: ["assets/sounds/yellow.wav", "audio/wav", "assets/sounds/goat.wav", "audio/wav", "", "", "", ""],
-        blue: ["assets/sounds/blue.wav", "audio/wav", "assets/sounds/pig.wav", "audio/wav", "", "", "", ""]
+        green: [["assets/sounds/green.wav", "audio/wav"], ["assets/sounds/horse.wav", "audio/wav"], ["", ""], ["", ""]],
+        yellow: [ ["assets/sounds/yellow.wav", "audio/wav"], ["assets/sounds/goat.wav", "audio/wav"], ["", ""], ["", ""]],
+        blue: [["assets/sounds/blue.wav", "audio/wav"], ["assets/sounds/pig.wav", "audio/wav"], ["", ""], ["", ""]]
     };
     
     if (soundSetting.includes("default") === true) {
@@ -209,6 +210,7 @@ $("#blue-beep").children().attr("type", sounds.blue[customIndex][1]);
 console.log($("#red-beep").children().attr("src"));
 console.log(customIndex);
 console.log(sounds.red[customIndex][0]);
+
 
 });
 
