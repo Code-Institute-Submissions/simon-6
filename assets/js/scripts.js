@@ -38,7 +38,7 @@ function playGame() {
         console.log($(soundId).children().attr("src"));
         $(colorId).addClass(colorClass);
         $(colorId).parent().addClass("layer");
-        $(soundId)[0].play();
+        $(soundId)[1].play();
         setTimeout(function () {
             $(colorId).removeClass(colorClass);
             $(colorId).parent().removeClass("layer");
