@@ -176,9 +176,9 @@ $("#gameSound").change(function() {
     let soundSetting = $("#gameSound").val();
     const sounds = {
         red: [["assets/sounds/red.wav", "audio/wav"], ["assets/sounds/cow.wav", "audio/wav"], ["", ""], ["", ""]],
-        green: ["assets/sounds/green.wav", "audio/wav", "assets/sounds/horse.mp3", "audio/mp3", "", "", "", ""],
-        yellow: ["assets/sounds/yellow.wav", "audio/wav", "assets/sounds/goat.mp3", "audio/mp3", "", "", "", ""],
-        blue: ["assets/sounds/blue.wav", "audio/wav", "assets/sounds/chicken.mp3", "audio/mp3", "", "", "", ""]
+        green: ["assets/sounds/green.wav", "audio/wav", "assets/sounds/horse.wav", "audio/wav", "", "", "", ""],
+        yellow: ["assets/sounds/yellow.wav", "audio/wav", "assets/sounds/goat.wav", "audio/wav", "", "", "", ""],
+        blue: ["assets/sounds/blue.wav", "audio/wav", "assets/sounds/pig.wav", "audio/wav", "", "", "", ""]
     };
     
     if (soundSetting.includes("default") === true) {
@@ -186,25 +186,29 @@ $("#gameSound").change(function() {
     }  
 
     else if (soundSetting.includes("farm") === true) {
-        customIndex = 2;
+        customIndex = 1;
     }
 
     else if (soundSetting.includes("flat") === true) {
-        customIndex = 4;
+        customIndex = 2;
     }
 
     else {
-        customIndex = 6;
+        customIndex = 3;
     }
 
-$("#red-beep").children().setAttribute("src", sounds.red[customIndex[0]]);
-$("#red-beep").children().setAttribute("type", sounds.red[customIndex[1]]);
-$("#green-beep").children().setAttribute("src", sounds.green[customIndex[0]]);
-$("#green-beep").children().setAttribute("type", sounds.green[customIndex[1]]);
-$("#yellow-beep").children().setAttribute("src", sounds.yellow[customIndex[0]]);
-$("#yellow-beep").children().setAttribute("type", sounds.yellow[customIndex[1]]);
-$("#blue-beep").children().setAttribute("src", sounds.blue[customIndex[0]]);
-$("#blue-beep").children().setAttribute("type", sounds.blue[customIndex[1]]);
+$("#red-beep").children().attr("src", sounds.red[customIndex][0]);
+$("#red-beep").children().attr("type", sounds.red[customIndex][1]);
+$("#green-beep").children().attr("src", sounds.green[customIndex][0]);
+$("#green-beep").children().attr("type", sounds.green[customIndex][1]);
+$("#yellow-beep").children().attr("src", sounds.yellow[customIndex][0]);
+$("#yellow-beep").children().attr("type", sounds.yellow[customIndex][1]);
+$("#blue-beep").children().attr("src", sounds.blue[customIndex][0]);
+$("#blue-beep").children().attr("type", sounds.blue[customIndex][1]);
+
+console.log($("#red-beep").children().attr("src"));
+console.log(customIndex);
+console.log(sounds.red[customIndex][0]);
 
 });
 
