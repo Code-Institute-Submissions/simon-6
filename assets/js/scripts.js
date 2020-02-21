@@ -31,14 +31,17 @@ function playGame() {
             clearInterval(timer);
         }
 
-        let colorId = "#" + colorComp[i];
-        let colorClass = colorComp[i];
-        let soundId = colorId + "-beep";
+        let colorId = "#" + colorComp[i],
+            colorClass = colorComp[i],
+            soundId = colorId + "-beep",
+            sound = new Audio();
 
-        console.log($(soundId).children().attr("src"));
+            sound.src = $(soundId).children().attr("src");
+
+        
         $(colorId).addClass(colorClass);
         $(colorId).parent().addClass("layer");
-        $(soundId)[0].play();
+        $(sound)[0].play();
         setTimeout(function () {
             $(colorId).removeClass(colorClass);
             $(colorId).parent().removeClass("layer");
