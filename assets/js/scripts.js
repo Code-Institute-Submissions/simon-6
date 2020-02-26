@@ -96,7 +96,7 @@ $(".color_btn").children().click(function () {
 
                 setTimeout(() => {
                     $(".color_btn").children().addClass("unclickable");
-                    levelup(); //lines 132-147
+                    levelup(); //lines 1-147
                     playGame(); //lines 12-54
                 }, 1000);
             }
@@ -219,6 +219,7 @@ $("#blue-beep").children().attr("type", sounds.blue[customIndex][1]);
 console.log($("#red-beep").children().attr("src"));
 console.log(customIndex);
 console.log(sounds.red[customIndex][0]);
+console.log("Hello World");
 
 });
 
