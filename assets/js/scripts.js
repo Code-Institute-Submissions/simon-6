@@ -6,8 +6,8 @@ let colorComp = [],
     highScores_Arr;
 
 /**
- playgame() takes a value at random from the ColorPool array
- and adds it as the last index of the colorComp array.
+ * playgame() takes a value at random from the ColorPool array
+ * and adds it as the last index of the colorComp array.
  */
 function playGame() {
     $("#play_btn").fadeOut(1000);
@@ -18,11 +18,11 @@ function playGame() {
         (colorPool.length))];
 
     /**
-    setInterval() iterates through the colorComp array. 
-     It takes value of each index and creates a class and 2 id's, 
-     storing them in separate variables. 
+     * setInterval() iterates through the colorComp array. 
+     * It takes the value at each index and creates a class and 2 id's, 
+     * Stores them in separate variables. 
     
-     One id is used to target a sound clip. The other is used to target the relevant div element in the document. 
+     * One id is used to target a sound clip. The other is used to target the relevant div element in the document. 
      The class is then used to apply a set of CSS styles to the div until the SetTimeout function ends and the class is removed.
      */
     let timer = setInterval(function () {
@@ -33,6 +33,7 @@ function playGame() {
 
         let colorId = "#" + colorComp[i],
             colorClass = colorComp[i],
+
             soundId = colorId + "-beep",
             sound = new Audio();
 
@@ -53,11 +54,10 @@ function playGame() {
 } //close of PlayGame function.
 
 
-// ********************** USER INPUT **********************
+/********************** USER INPUT **********************/
 
-//i must be declared outside the function so that i can increment everytime a user clicks to add to the array
+let i = 0; //i must be declared outside the function so that i can increment everytime a user clicks to add to the array
 
-let i = 0;
 $(".color_btn").children().click(function () {
     let colorClass = this.id;
     let colorId = "#" + this.id;
@@ -81,23 +81,23 @@ $(".color_btn").children().click(function () {
 
 
     /**
-    compareIndex() is called every time a colour is clicked on. It checks each index in the array so far against the corresponding index in the colorComp array to see if the values match.
-    Must br 
+    * compareIndex() is called every time a colour is clicked on. 
+    * compareIndex() compares each index in the accumulating userArray, against the corresponding index in the colorComp array.
      */
     function compareIndex() {
         if (userArray[i] === colorComp[i]) {
             if (userArray.length === colorComp.length) {
                 // if the arrays have matching values and length, clear the user array ready for the next round    
-                console.log(userArray[i] + " vs " + colorComp[i]);
+                //console.log(userArray[i] + " vs " + colorComp[i]);
                 userArray = [];
                 i = 0;
-                ///console.log("Array is: " + userArray + " & i:" + i);
                 points += 5;
                 $("#score").html("points: " + points);
 
                 setTimeout(() => {
                     $(".color_btn").children().addClass("unclickable");
-                    playGame();
+                    levelup(); //lines 132-147
+                    playGame(); //lines 12-54
                 }, 1000);
             }
 
@@ -107,9 +107,8 @@ $(".color_btn").children().click(function () {
             }
         }
 
-        //if the values don't match, game over.
+        //if two values don't match, game over.
         else {
-            console.log(points);
             $("#gamescore").html(points);
             $('#gameOver').modal();
             addScore(points);
@@ -120,25 +119,32 @@ $(".color_btn").children().click(function () {
     }
 });
 
-/************************ EMAIL FEEDBACK ***********************/
-function sendMail(feedbackForm) {
-    console.log('working');
-    emailjs.send("gmail", "feedback", {
-        "from_name": feedbackForm.name.value,
-        "from_email": feedbackForm.emailaddress.value,
-        "user_feedback": feedbackForm.feedback.value
-    })
+/************************ LEVEL UP ************************/
+let delay;
+let milliseconds = {
+    stageOne: 1000,
+    stageTwo: 700,
+    stageThree: 400
+};
+
+function levelup() {
+    if (points == 20) {
+        delay = milliseconds.stageTwo;
+        console.log("level up!");
+    }
+
+    else if (points == 40) {
+        delay = milliseconds.stageThree;
+        console.log("level up");
+    }
     
-    .then(
-        function (response) {
-            $('.form-data').val('');
-            $('#feedbackModal').modal('hide');
-        }
-    ); return false;
+    else {
+        delay = milliseconds.stageOne;
+        console.log("level unchanged");
+    }
 }
 
 /************************ HIGH SCORES ***********************/
-
 function getScores() {
     highScores_Str = localStorage.getItem("scores"); //Returns a string
     if (highScores_Str === null) {
@@ -214,10 +220,22 @@ console.log($("#red-beep").children().attr("src"));
 console.log(customIndex);
 console.log(sounds.red[customIndex][0]);
 
-
 });
 
-
-
-
+/************************ EMAIL FEEDBACK ***********************/
+function sendMail(feedbackForm) {
+    console.log('working');
+    emailjs.send("gmail", "feedback", {
+        "from_name": feedbackForm.name.value,
+        "from_email": feedbackForm.emailaddress.value,
+        "user_feedback": feedbackForm.feedback.value
+    })
+    
+    .then(
+        function (response) {
+            $('.form-data').val('');
+            $('#feedbackModal').modal('hide');
+        }
+    ); return false;
+}
 
