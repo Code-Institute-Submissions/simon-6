@@ -22,7 +22,7 @@ function playGame() {
      * Stores them in separate variables. 
     
      * One id is used to target a sound clip. The other is used to target the relevant div element in the document. 
-     The class is then used to apply a set of CSS styles to the div until the SetTimeout function ends and the class is removed.
+     *The class is then used to apply a set of CSS styles to the div until the SetTimeout function ends and the class is removed.
      */
     let timer = setInterval(function() {
         if (i === colorComp.length) {
@@ -74,14 +74,14 @@ $(".color_btn")
         $(colorId).addClass(colorClass + " unclickable");
         $(colorId)
             .parent()
-            .addClass("layer");
+            .addClass("glowlayer");
         $(soundId)[0].play();
 
         setTimeout(() => {
             $(colorId).removeClass(colorClass + " unclickable");
             $(colorId)
                 .parent()
-                .removeClass("layer");
+                .removeClass("glowlayer");
         }, 400);
 
         setTimeout(() => {
@@ -106,7 +106,7 @@ $(".color_btn")
                         $(".color_btn")
                             .children()
                             .addClass("unclickable");
-                        levelup(); //lines 1-147
+                        levelup(); //lines 135-147
                         playGame(); //lines 12-54
                     }, 1000);
                 }
@@ -262,7 +262,6 @@ $("#gameSound").change(function() {
     );
     console.log(customIndex);
     console.log(sounds.red[customIndex][0]);
-    console.log("Hello World");
 });
 
 /************************ EMAIL FEEDBACK ***********************/
