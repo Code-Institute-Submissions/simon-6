@@ -44,13 +44,13 @@ function playGame() {
         $(colorId).addClass(colorClass);
         $(colorId)
             .parent()
-            .addClass("layer");
+            .addClass("glowlayer");
         $(sound)[0].play();
         setTimeout(function() {
             $(colorId).removeClass(colorClass);
             $(colorId)
                 .parent()
-                .removeClass("layer");
+                .removeClass("glowlayer");
         }, 800);
 
         i++;
@@ -64,9 +64,15 @@ let i = 0; //i must be declared outside the function so that i can increment eve
 $(".color_btn")
     .children()
     .click(function() {
-        let colorClass = this.id;
-        let colorId = "#" + this.id;
-        let soundId = colorId + "-beep";
+        let colorClass = this.id,
+            colorId = "#" + this.id,
+            soundId = colorId + "-beep",
+            sound = new Audio();
+
+        sound.src = $(soundId)
+            .children()
+            .attr("src");
+
         userArray[userArray.length] = colorClass;
         //console.log(colorId + "/." + colorClass + "/" + soundId);
         console.log(userArray + " vs " + colorComp);
@@ -75,7 +81,7 @@ $(".color_btn")
         $(colorId)
             .parent()
             .addClass("glowlayer");
-        $(soundId)[0].play();
+        $(sound)[0].play();
 
         setTimeout(() => {
             $(colorId).removeClass(colorClass + " unclickable");
@@ -199,28 +205,27 @@ $("#gameSound").change(function() {
             ["assets/sounds/cow.mp3", "audio/mp3"],
             ["assets/sounds/fart-1.mp3", "audio/mp3"],
             ["assets/sounds/chord-1.mp3", "audio/mp3"],
-            ["", ""]
+            ["assets/sounds/null.mp3", "audio/mp3"]
         ],
         green: [
             ["/assets/sounds/green.mp3", "audio/mp3"],
             ["assets/sounds/horse.mp3", "audio/mp3"],
             ["assets/sounds/fart-2.mp3", "audio/mp3"],
             ["assets/sounds/chord-2.mp3", "audio/mp3"],
-            ["", ""]
+            ["assets/sounds/null.mp3", "audio/mp3"]
         ],
         yellow: [
             ["/assets/sounds/yellow.mp3", "audio/mp3"],
             ["assets/sounds/goat.mp3", "audio/mp3"],
             ["assets/sounds/fart-3.mp3", "audio/mp3"],
-            ["", ""]
-
+            ["assets/sounds/null.mp3", "audio/mp3"]
         ],
         blue: [
             ["/assets/sounds/blue.mp3", "audio/mp3"],
             ["assets/sounds/pig.mp3", "audio/mp3"],
             ["assets/sounds/fart-4.mp3", "audio/mp3"],
             ["assets/sounds/chord-4.mp3", "audio/mp3"],
-            ["", ""]
+            ["assets/sounds/null.mp3", "audio/mp3"]
         ]
     };
 
@@ -270,11 +275,10 @@ $("#gameSound").change(function() {
     console.log(sounds.red[customIndex][0]);
 });
 
-
 /************************ EMAIL FEEDBACK ***********************/
-(function(){
+(function() {
     emailjs.init("user_ZLm8FPXGvg2bfyfHS3yIq");
- })();
+})();
 
 function sendMail(feedbackForm) {
     emailjs
