@@ -91,6 +91,7 @@
 		</div>
 
 		<!--***************************** MODALS ***********************************-->
+
 		<!------------ How To Play Modal ------------>
 		<div class="modal fade" id="gameInstructions" tabindex="-1" role="dialog" aria-labelledby="howToPlay"
 			aria-hidden="true">
@@ -151,7 +152,7 @@
 								</div>
 							</div>
 							<div class="modal-body">
-								<form action="">
+								<form class="content-outline" onsubmit="return false;">
 									<div class="row justify-content-center align-items-center content-outline">
 
 										<div class="col-12 content-outline p-0">
@@ -175,47 +176,14 @@
 									</div>
 
 									<div class="row modal-footer justify-content-center content-outline">
-										<button type="submit" class="btn btn-primary">OK</button>
+										<button class="btn btn-primary justify-content-center content-outline" type="submit" aria-label="Close">Ok!</button>
 									</div>
 								</form>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<!------------ Feedback Modal ------------>
-			<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedback"
-				aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content">
-						<div class="modTitle">
-							<h2 class="modal-title text-center content-outline" id="feedback">feedback</h2>
-							<div class="xicon content-outline">
-								<button type="button" class="close content-outline" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-							</div>
-						</div>
-						<div class="modal-body">
-							<!-- Feedback form -->
-							<form class="content-outline" onsubmit="return sendMail(this);">
-								<div class="row align-items-center content-outline">
-									<div class="col-12 content-outline p-0">
-										<input type="text" name="name" class="form-control mb-2 form-data" id="fullname" placeholder="Name" required/>
-										<input type="text" name="emailaddress" class="form-control mb-2 form-data" id="emailaddress" placeholder="Email" required/>
-										<textarea rows="5" name="feedback" class="form-control mb-2 form-data" id="feedback" placeholder="Add Comments..." required></textarea>
-									</div>
-								</div>
-								<div class="row modal-footer content-outline">
-									<button class="btn btn-primary justify-content-center content-outline" type="submit" aria-label="Close"></i>Send Feedback</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
+			</div>	
 		<!------------ High Scores Modal ------------>
 		<div class="modal fade" id="highScores" tabindex="-1" role="dialog" aria-labelledby="scores" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
@@ -261,6 +229,39 @@
 				</div>
 			</div>
 		</div>
+
+		<!------------ Feedback Modal ------------>
+		<div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedback"
+		aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modTitle">
+					<h2 class="modal-title text-center content-outline" id="feedback">feedback</h2>
+					<div class="xicon content-outline">
+						<button type="button" class="close content-outline" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+					</div>
+				</div>
+				<div class="modal-body">
+					<!-- Feedback form -->
+					<form class="content-outline" onsubmit="return sendMail(this);">
+						<div class="row align-items-center content-outline">
+							<div class="col-12 content-outline p-0">
+								<input type="text" name="name" class="form-control mb-2 form-data" id="fullname" placeholder="Name" required/>
+								<input type="text" name="emailaddress" class="form-control mb-2 form-data" id="emailaddress" placeholder="Email" required/>
+								<textarea rows="5" name="feedback" class="form-control mb-2 form-data" id="feedback" placeholder="Add Comments..." required></textarea>
+							</div>
+						</div>
+						<div class="row modal-footer content-outline">
+							<button class="btn btn-primary justify-content-center content-outline" type="submit" aria-label="Close"></i>Send Feedback</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 		<!------------ Game Over Modal ------------>
 		<div class="modal fade" id="gameOver" tabindex="-1" role="dialog" aria-labelledby="howToPlay"

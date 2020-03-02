@@ -264,9 +264,24 @@ $("#gameSound").change(function() {
     console.log(sounds.red[customIndex][0]);
 });
 
+
+function updateSettings(form) {
+
+    dothis({
+    let soundValue = $("#gameSound").val();
+    let levelValue = $("#gameLevel").val();
+    localStorage.setItem("storedSound", soundValue);
+    localStorage.setItem("storedLevel", levelValue);
+})
+
+.then(function(response) {
+    $("#feedbackModal").modal("hide");
+});
+return false;
+}
+
 /************************ EMAIL FEEDBACK ***********************/
 function sendMail(feedbackForm) {
-    console.log("working");
     emailjs
         .send("gmail", "feedback", {
             from_name: feedbackForm.name.value,
