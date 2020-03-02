@@ -195,27 +195,31 @@ $("#gameSound").change(function() {
     let soundSetting = $("#gameSound").val();
     const sounds = {
         red: [
-            ["/assets/sounds/red.wav", "audio/wav"],
-            ["assets/sounds/cow.wav", "audio/wav"],
-            ["", ""],
+            ["/assets/sounds/red.mp3", "audio/mp3"],
+            ["assets/sounds/cow.mp3", "audio/mp3"],
+            ["assets/sounds/fart-1.mp3", "audio/mp3"],
+            ["assets/sounds/chord-1.mp3", "audio/mp3"],
             ["", ""]
         ],
         green: [
-            ["/assets/sounds/green.wav", "audio/wav"],
-            ["assets/sounds/horse.wav", "audio/wav"],
-            ["", ""],
+            ["/assets/sounds/green.mp3", "audio/mp3"],
+            ["assets/sounds/horse.mp3", "audio/mp3"],
+            ["assets/sounds/fart-2.mp3", "audio/mp3"],
+            ["assets/sounds/chord-2.mp3", "audio/mp3"],
             ["", ""]
         ],
         yellow: [
-            ["/assets/sounds/yellow.wav", "audio/wav"],
-            ["assets/sounds/goat.wav", "audio/wav"],
-            ["", ""],
+            ["/assets/sounds/yellow.mp3", "audio/mp3"],
+            ["assets/sounds/goat.mp3", "audio/mp3"],
+            ["assets/sounds/fart-3.mp3", "audio/mp3"],
             ["", ""]
+
         ],
         blue: [
-            ["/assets/sounds/blue.wav", "audio/wav"],
-            ["assets/sounds/pig.wav", "audio/wav"],
-            ["", ""],
+            ["/assets/sounds/blue.mp3", "audio/mp3"],
+            ["assets/sounds/pig.mp3", "audio/mp3"],
+            ["assets/sounds/fart-4.mp3", "audio/mp3"],
+            ["assets/sounds/chord-4.mp3", "audio/mp3"],
             ["", ""]
         ]
     };
@@ -224,10 +228,12 @@ $("#gameSound").change(function() {
         customIndex = 0;
     } else if (soundSetting.includes("farm") === true) {
         customIndex = 1;
-    } else if (soundSetting.includes("flat") === true) {
+    } else if (soundSetting.includes("flatulence") === true) {
         customIndex = 2;
-    } else {
+    } else if (soundSetting.includes("chord") === true) {
         customIndex = 3;
+    } else {
+        customIndex = 4;
     }
 
     $("#red-beep")
