@@ -271,22 +271,11 @@ $("#gameSound").change(function() {
 });
 
 
-function updateSettings(form) {
-
-    dothis({
-    let soundValue = $("#gameSound").val();
-    let levelValue = $("#gameLevel").val();
-    localStorage.setItem("storedSound", soundValue);
-    localStorage.setItem("storedLevel", levelValue);
-})
-
-.then(function(response) {
-    $("#feedbackModal").modal("hide");
-});
-return false;
-}
-
 /************************ EMAIL FEEDBACK ***********************/
+(function(){
+    emailjs.init("user_ZLm8FPXGvg2bfyfHS3yIq");
+ })();
+
 function sendMail(feedbackForm) {
     emailjs
         .send("gmail", "feedback", {
