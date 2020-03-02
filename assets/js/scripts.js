@@ -196,6 +196,12 @@ $("#trigger").click(function() {
 });
 
 //****************** GAME CUSTOMISATION *****************
+function returntoDefault() {
+$('#customiser').trigger("reset");
+console.log("returned");
+$("#gameSettings").modal("hide");
+}
+
 $("#gameSound").change(function() {
     let customIndex;
     let soundSetting = $("#gameSound").val();
@@ -204,27 +210,28 @@ $("#gameSound").change(function() {
             ["/assets/sounds/red.mp3", "audio/mp3"],
             ["assets/sounds/cow.mp3", "audio/mp3"],
             ["assets/sounds/fart-1.mp3", "audio/mp3"],
-            ["assets/sounds/chord-1.mp3", "audio/mp3"],
+            ["assets/sounds/note-1.mp3", "audio/mp3"],
             ["assets/sounds/null.mp3", "audio/mp3"]
         ],
         green: [
             ["/assets/sounds/green.mp3", "audio/mp3"],
             ["assets/sounds/horse.mp3", "audio/mp3"],
             ["assets/sounds/fart-2.mp3", "audio/mp3"],
-            ["assets/sounds/chord-2.mp3", "audio/mp3"],
+            ["assets/sounds/note-2.mp3", "audio/mp3"],
             ["assets/sounds/null.mp3", "audio/mp3"]
         ],
         yellow: [
             ["/assets/sounds/yellow.mp3", "audio/mp3"],
             ["assets/sounds/goat.mp3", "audio/mp3"],
             ["assets/sounds/fart-3.mp3", "audio/mp3"],
+            ["assets/sounds/note-3.mp3", "audio/mp3"],
             ["assets/sounds/null.mp3", "audio/mp3"]
         ],
         blue: [
             ["/assets/sounds/blue.mp3", "audio/mp3"],
             ["assets/sounds/pig.mp3", "audio/mp3"],
             ["assets/sounds/fart-4.mp3", "audio/mp3"],
-            ["assets/sounds/chord-4.mp3", "audio/mp3"],
+            ["assets/sounds/note-4.mp3", "audio/mp3"],
             ["assets/sounds/null.mp3", "audio/mp3"]
         ]
     };
@@ -265,14 +272,6 @@ $("#gameSound").change(function() {
     $("#blue-beep")
         .children()
         .attr("type", sounds.blue[customIndex][1]);
-
-    console.log(
-        $("#red-beep")
-            .children()
-            .attr("src")
-    );
-    console.log(customIndex);
-    console.log(sounds.red[customIndex][0]);
 });
 
 /************************ EMAIL FEEDBACK ***********************/

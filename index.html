@@ -139,20 +139,20 @@
 							<div class="modTitle">
 								<h2 class="modal-title text-center content-outline" id="howToPlay">settings</h2>
 								<div class="xicon content-outline">
-									<button type="button" class="close content-outline" data-dismiss="modal" aria-label="Close">
+									<button type="button" class="close content-outline" aria-label="Close" onclick="returntoDefault()">
                     <span aria-hidden="true">&times;</span>
                 </button>
 								</div>
 							</div>
 							<div class="modal-body">
-								<form class="content-outline" onsubmit="return false;">
+								<form id="customiser" class="content-outline" onsubmit="function re;">
 									<div class="row justify-content-center align-items-center content-outline">
 
 										<div class="col-12 content-outline p-0">
 
 											<label for="gameSound" class="leadtext">Game Sounds <i class="fas fa-music"></i></label><br>
 											<select id="gameSound" name="sounds" class="d-block mb-4">
-    <option value="default" class="py-3" selected>Simon Beeps</option>
+    <option value="default" class="py-3" selected=true>Simon Beeps</option>
     <option value="farm" class="content-outline">Farm Animals</option>
 	<option value="flatulence">Flatulance</option>
 	<option value="chord">Harpsichord</option>
