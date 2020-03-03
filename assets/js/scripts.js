@@ -241,9 +241,7 @@ function audioSource(colour) {
     } else {
         customIndex = 4;
     }
-
-    console.log(sounds[colour][customIndex]);
-
+    
     return sounds[colour][customIndex];
 
 }
