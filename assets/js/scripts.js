@@ -34,18 +34,15 @@ function playGame() {
 
         let colorId = "#" + colorComp[i],
             colorClass = colorComp[i],
-            soundId = colorId + "-beep",
-            sound = new Audio();
-
-        sound.src = $(soundId)
-            .children()
-            .attr("src");
+            sound = new Howl({ 
+                src: [audioSource(colorComp[i])] 
+            });
 
         $(colorId).addClass(colorClass);
         $(colorId)
             .parent()
             .addClass("glowlayer");
-        $(sound)[0].play();
+        sound.play();
         setTimeout(function() {
             $(colorId).removeClass(colorClass);
             $(colorId)
@@ -66,12 +63,9 @@ $(".color_btn")
     .click(function() {
         let colorClass = this.id,
             colorId = "#" + this.id,
-            soundId = colorId + "-beep",
-            sound = new Audio();
-
-        sound.src = $(soundId)
-            .children()
-            .attr("src");
+            sound = new Howl({ 
+                src: [audioSource(colorClass)] 
+            });
 
         userArray[userArray.length] = colorClass;
         //console.log(colorId + "/." + colorClass + "/" + soundId);
@@ -81,7 +75,7 @@ $(".color_btn")
         $(colorId)
             .parent()
             .addClass("glowlayer");
-        $(sound)[0].play();
+        sound.play();
 
         setTimeout(() => {
             $(colorId).removeClass(colorClass + " unclickable");
@@ -112,8 +106,8 @@ $(".color_btn")
                         $(".color_btn")
                             .children()
                             .addClass("unclickable");
-                        levelup(); //lines 135-147
-                        playGame(); //lines 12-54
+                        levelup(); //lines 139-157
+                        playGame(); //lines 11-56
                     }, 1000);
                 }
 
@@ -202,37 +196,37 @@ console.log("returned");
 $("#gameSettings").modal("hide");
 }
 
-$("#gameSound").change(function() {
+function audioSource(colour) {
     let customIndex;
     let soundSetting = $("#gameSound").val();
     const sounds = {
         red: [
-            ["/assets/sounds/red.mp3", "audio/mp3"],
-            ["assets/sounds/cow.mp3", "audio/mp3"],
-            ["assets/sounds/fart-1.mp3", "audio/mp3"],
-            ["assets/sounds/note-1.mp3", "audio/mp3"],
-            ["assets/sounds/null.mp3", "audio/mp3"]
+            "assets/sounds/red.mp3",
+            "assets/sounds/cow.mp3",
+            "assets/sounds/fart-1.mp3",
+            "assets/sounds/note-1.mp3",
+            "assets/sounds/null.mp3"
         ],
         green: [
-            ["/assets/sounds/green.mp3", "audio/mp3"],
-            ["assets/sounds/horse.mp3", "audio/mp3"],
-            ["assets/sounds/fart-2.mp3", "audio/mp3"],
-            ["assets/sounds/note-2.mp3", "audio/mp3"],
-            ["assets/sounds/null.mp3", "audio/mp3"]
+            "assets/sounds/green.mp3",
+            "assets/sounds/horse.mp3",
+            "assets/sounds/fart-2.mp3",
+            "assets/sounds/note-2.mp3",
+            "assets/sounds/null.mp3"
         ],
         yellow: [
-            ["/assets/sounds/yellow.mp3", "audio/mp3"],
-            ["assets/sounds/goat.mp3", "audio/mp3"],
-            ["assets/sounds/fart-3.mp3", "audio/mp3"],
-            ["assets/sounds/note-3.mp3", "audio/mp3"],
-            ["assets/sounds/null.mp3", "audio/mp3"]
+            "assets/sounds/yellow.mp3",
+            "assets/sounds/goat.mp3",
+            "assets/sounds/fart-3.mp3",
+            "assets/sounds/note-3.mp3",
+            "assets/sounds/null.mp3"
         ],
         blue: [
-            ["/assets/sounds/blue.mp3", "audio/mp3"],
-            ["assets/sounds/pig.mp3", "audio/mp3"],
-            ["assets/sounds/fart-4.mp3", "audio/mp3"],
-            ["assets/sounds/note-4.mp3", "audio/mp3"],
-            ["assets/sounds/null.mp3", "audio/mp3"]
+            "assets/sounds/blue.mp3",
+            "assets/sounds/pig.mp3",
+            "assets/sounds/fart-4.mp3",
+            "assets/sounds/note-4.mp3",
+            "assets/sounds/null.mp3"
         ]
     };
 
@@ -242,37 +236,18 @@ $("#gameSound").change(function() {
         customIndex = 1;
     } else if (soundSetting.includes("flatulence") === true) {
         customIndex = 2;
-    } else if (soundSetting.includes("chord") === true) {
+    } else if (soundSetting.includes("harpsichord") === true) {
         customIndex = 3;
     } else {
         customIndex = 4;
     }
 
-    $("#red-beep")
-        .children()
-        .attr("src", sounds.red[customIndex][0]);
-    $("#red-beep")
-        .children()
-        .attr("type", sounds.red[customIndex][1]);
-    $("#green-beep")
-        .children()
-        .attr("src", sounds.green[customIndex][0]);
-    $("#green-beep")
-        .children()
-        .attr("type", sounds.green[customIndex][1]);
-    $("#yellow-beep")
-        .children()
-        .attr("src", sounds.yellow[customIndex][0]);
-    $("#yellow-beep")
-        .children()
-        .attr("type", sounds.yellow[customIndex][1]);
-    $("#blue-beep")
-        .children()
-        .attr("src", sounds.blue[customIndex][0]);
-    $("#blue-beep")
-        .children()
-        .attr("type", sounds.blue[customIndex][1]);
-});
+    console.log(sounds[colour][customIndex]);
+
+    return sounds[colour][customIndex];
+
+}
+
 
 /************************ EMAIL FEEDBACK ***********************/
 (function() {
