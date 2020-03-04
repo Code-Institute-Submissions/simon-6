@@ -4,7 +4,7 @@
 
 <div>
 
-A classic memory game designed for all ages to enjoy. The Simon Game is simple:- a set of colours flash in a randomised sequence and the player must respond by repeating the sequence back, clicking on the colours in the order that they appeared. The game features 3 different levels to make it more challenging as it progresses. And options to customize the game sounds and starting levels. [The Simon Game](https://github.com/fdeboo/simon)
+A classic memory game designed for all ages to enjoy. The Simon Game is simple:- a set of colours flash in a randomised sequence and the player must respond by repeating the sequence back, clicking on the colours in the order that they appeared. The game features 3 different levels to make it more challenging as it progresses. And options to customize the game sounds and starting levels. [View the Simon game here](https://github.com/fdeboo/simon)
 
 </div>
 
@@ -12,7 +12,8 @@ A classic memory game designed for all ages to enjoy. The Simon Game is simple:-
 
 ### Project Goals
 
-The goal of this project was to make a in
+The goal of this project is to build a fun, interactive game which is accessible to all ages. It sould be 
+
 
 Who is my target audience? 
 The game is for children through to adults looking who are looking to challenge their mind. The game should be bright and positive and not dull and miserable. A good experience is one where the game can be played obstructed, intuitive and the focus of the page. Any other links and information should be available but not in the way of the game. 
