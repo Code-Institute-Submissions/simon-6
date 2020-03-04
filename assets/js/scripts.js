@@ -25,7 +25,7 @@ function playGame() {
      *The class is then used to apply a set of CSS styles to the div until the SetTimeout function ends and the class is removed.
      */
     let timer = setInterval(function() {
-        if (i === colorComp.length) {
+        if (i === colorComp.length -1) {
             $(".color_btn")
                 .children()
                 .removeClass("unclickable");
@@ -191,16 +191,21 @@ $("#trigger").click(function() {
 
 //****************** GAME CUSTOMISATION *****************
 function returntoDefault() {
-$('#customiser').trigger("reset");
+$('#custom-options').trigger("reset");
 $("#gameSettings").modal("hide");
+return false;
 }
 
 function setStorage() {
-    localStorage.setItem("audio-pref", $("#gameSound").val());
+    console.log("function executed");
+    let preference = $("#gameSound").val();
+    localStorage.setItem("audio-pref", preference);
     $("#gameSettings").modal("hide");
+    return false;
 }
 
 function audioSource(colour) {
+
     let customIndex;
     let soundSetting = localStorage.getItem("audio-pref");
     const sounds = {
