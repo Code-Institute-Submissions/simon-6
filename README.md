@@ -1,7 +1,8 @@
- ![Simon logo](/assets/images/logo.png)
-# The Simon Game
+ <h1 style="text-align: center"><a href="https://fdeboo.github.io/simon/" target="_blank"><img src="/assets/images/logo.png" alt="Simon Logo"/></a></h1>
 
-A classic memory game designed for all ages to enjoy. The Simon Game is simple:- a set of colours flash in a randomised sequence and the player must respond by repeating the sequence back, clicking on the colours in the order that they appeared. Features include 3 different levels so that game becomes more challenging as it progresses. And options to customize the game sounds. ...link to deployed site.
+<div style="text-align:center">
+A classic memory game designed for all ages to enjoy. The Simon Game is simple:- a set of colours flash in a randomised sequence and the player must respond by repeating the sequence back, clicking on the colours in the order that they appeared. Features include 3 different levels so that game becomes more challenging as it progresses. And options to customize the game sounds. [The Simon Game] (https://fdeboo.github.io/simon/ "The Simon Game")
+</div>
 
 ## UX
 
