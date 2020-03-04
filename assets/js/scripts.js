@@ -4,6 +4,10 @@ let colorComp = [],
     highScores_Str,
     highScores_Arr;
 
+    $(document).ready(function() {
+        localStorage.setItem("audio-pref", "default");
+    });
+
 /**
  * playgame() takes a value at random from the ColorPool array
  * and adds it as the last index of the colorComp array.
