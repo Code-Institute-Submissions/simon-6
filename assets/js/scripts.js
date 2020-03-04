@@ -2,7 +2,14 @@ let colorComp = [],
     points = 0,
     userArray = [],
     highScores_Str,
-    highScores_Arr;
+    highScores_Arr,
+    milliseconds = {
+        stageOne: 1000,
+        stageTwo: 700,
+        stageThree: 400
+    },
+    delay;
+delay = milliseconds.stageOne;
 
 /**
  * playgame() takes a value at random from the ColorPool array
@@ -51,7 +58,7 @@ function playGame() {
         }, 800);
 
         i++;
-    }, 1000);
+    }, delay);
 } //close of PlayGame function.
 
 /********************** USER INPUT **********************/
@@ -132,15 +139,10 @@ $(".color_btn")
     });
 
 /************************ LEVEL UP ************************/
-let delay;
-let milliseconds = {
-    stageOne: 1000,
-    stageTwo: 700,
-    stageThree: 400
-};
+
 
 function levelup() {
-    if (points == 20) {
+    if (points >= 20) {
         delay = milliseconds.stageTwo;
         console.log("level up!");
     } else if (points == 40) {
