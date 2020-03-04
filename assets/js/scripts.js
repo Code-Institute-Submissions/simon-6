@@ -192,13 +192,17 @@ $("#trigger").click(function() {
 //****************** GAME CUSTOMISATION *****************
 function returntoDefault() {
 $('#customiser').trigger("reset");
-console.log("returned");
 $("#gameSettings").modal("hide");
+}
+
+function setStorage() {
+    localStorage.setItem("audio-pref", $("#gameSound").val());
+    $("#gameSettings").modal("hide");
 }
 
 function audioSource(colour) {
     let customIndex;
-    let soundSetting = $("#gameSound").val();
+    let soundSetting = localStorage.getItem("audio-pref");
     const sounds = {
         red: [
             "assets/sounds/red.mp3",
@@ -241,7 +245,7 @@ function audioSource(colour) {
     } else {
         customIndex = 4;
     }
-    
+
     return sounds[colour][customIndex];
 
 }
