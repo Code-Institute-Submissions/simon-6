@@ -4,10 +4,6 @@ let colorComp = [],
     highScores_Str,
     highScores_Arr;
 
-    $(document).ready(function() {
-        localStorage.setItem("audio-pref", "default");
-    });
-
 /**
  * playgame() takes a value at random from the ColorPool array
  * and adds it as the last index of the colorComp array.
@@ -208,10 +204,18 @@ function setStorage() {
     return false;
 }
 
+function getAudio() {
+    let pref = localStorage.getItem("audio-pref");
+    if (pref === null) {
+        pref = "default";
+    }
+    return pref;
+}
+
 function audioSource(colour) {
 
     let customIndex;
-    let soundSetting = localStorage.getItem("audio-pref");
+    let soundSetting = getAudio();
     const sounds = {
         red: [
             "assets/sounds/red.mp3",
