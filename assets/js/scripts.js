@@ -160,7 +160,7 @@ function getScores() {
     if (highScores_Str === null) {
         highScores_Str = "0,0,0,0,0";
     }
-    //Convert the highscores from a string to an array (of numbers):
+    //Convert the highscores from a string to an array (of numbers). Courtesy of Stack Overflow:
     return highScores_Str.split(",").map(function(item) {
         return parseInt(item);
     });
