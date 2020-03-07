@@ -30,13 +30,18 @@ A classic memory game designed for all ages to enjoy. The Simon Game is simple:-
 
 ## UX <a name="introduction"></a>
 
-### Strategy <a name="strategy"></a>
-The objective is to build an interactive game that users of all ages can engage with. It should provide a bright and positive experience and keep them engaged by offering them a challenge.
+### Objective <a name="strategy"></a>
++ The focus of this project is to build an interactive game that users of all ages can engage with.
++ Users will likely be visting the site in their downtime. That being so, the game should provide a bright and positive experience thats fulfills their need to be entertained.
++ The functionalality of the game is fundamental to the site and so should be the priority of the page.
  
-### Scope <a name="scope"></a>
-The game will be built with Javascript and the JQuery framework to make it function. It will respond to correct responses from the user by adding points to the scoreline. Incorrect responses will trigger a game over message. 
+### Wireframes <a name="wirfeam"></a>
+The game interface is full screen relative to the view port. It should not have any overflow thats requires the user to scroll whatever device it is played on.
+![Large Screen UI](wireframes/largescreen_ui.png "Large Scree UI")
+![Mobile Device UI](wireframes/mobile_ui.png "Mobile UI")
+
 ### Structure <a name="structure"></a>
-The game is the focus of the application and so will also be the focus of the user interface. Any extra features will be available through the subtle means of a nav burgericon that toggles a nav menu. The nav menu will be kept off screen until it is toggled, thus creating an onobstructed space for the game to be  played. Only the features relevant to the gameplay 
+Since the game is at the core of the site, it should be  user interface. Any extra features will be available through the subtle means of a nav burgericon that toggles a nav menu. The nav menu will be kept off screen until it is toggled, thus creating an onobstructed space for the game to be  played. Only the features relevant to the gameplay 
 ### Skeleton <a name="skeleton"></a>
 ### Surface <a name="surface"></a>
 The game should be bright and positive through the use of bright colours and a minimalistic, uncluttered but intuitive interface. Any other links and information should be available but not in the way of the game. 
@@ -56,18 +61,27 @@ I want to keep them from being bored so I allow the game to get harder by decrea
 ## Features <a name="features"></a>
 ### Existing Features <a name="existing_feat"></a>
 + How To Play modal
-    The modal is accessed via a link positioned just beneath the play button. It provides a 2-step explanation of the game for users who have never played it before.  
+    + The modal is accessed via a link, which is primely positioned just beneath the play button for visibility. It 2-step instructions for any users who are new to the game.  
 + Settings Model
-    This modal allows the user to choose alternative game sounds from a drop down menu. 
-    The settings are implemented straight away after clicking 'OK' 
-    The user may also choose the starting level for the game from this panel.
+    + This modal allows the user to choose alternative game sounds from a drop down menu. 
+    + The settings are implemented straight away after clicking 'OK' 
+    + The user may also choose the starting level for the game from this panel.
++ High Scores modal
+    + Presents the top 5 scores attained by the user in a clean and simple table. 
+    + If local storage returns no data for the user, the table is filled with '0'.
+    + Opening or closing the modal does not interrupt the playback of the game.
 + Feedback modal 
     + Enables the user to send feedback to the developer via emailjs 
-    + The 
-+ A high scores modal gives the user information about the 5 top scores they have recorded which hopefully keeps them engages in wanting to improve upon their scores.
+    + Opening or closing the modal does not interrupt the playback of the game.
+    + Submitting the feedback via the 'Send Feedback' button clears the inputted values and closes the modal but does not reload the page.
++ Gameover modal 
+    + Triggered as soon as the code evaluates the user input to be unequal to the Simon sequence.
+    + Displays the score acheived within the active game session.
+    + The page is reloaded whichever way the modal is closed by the user.
 
 ### Features Left to Implement <a name="future_feat"></a>
 + The opportunity for a user to create a username against which their highscores can be saved
++ The opportunity to present the data for the top high scores 
 
 
 
@@ -75,7 +89,7 @@ I want to keep them from being bored so I allow the game to get harder by decrea
 + HTML, CSS, Javascript
 + [JQuery](https://jquery.com/)
     + Simplifies access and manipluation of the DOM
-+ Bootstrap
++ [Bootstrap](https://getbootstrap.com/)
     + Provides the visual formatting of the website and it's responsiveness accross all devices
 + [Howler.js](https://howlerjs.com/)
     + Handles the playback of the audio files accross all devices
@@ -85,12 +99,12 @@ I want to keep them from being bored so I allow the game to get harder by decrea
     + Provides access to the web fonts used in this project
 + [Font Awesome](https://fontawesome.com/)
     + Provides the icons used in this project to guide the users' navigation.
-+ Visual Studio Code
++ [Visual Studio Code](https://code.visualstudio.com/)
     + The IDE that facilitated the devlopment of this project.
 + [GitHub](https://github.com/)
     + The platform where the project code is stored remotely
 + Adobe Illustrator
-    + The images used in this project were created from scratch using Illustrators drawing tools. 
+    + Facilitated the creation of the images used in this project 
 
 
 
@@ -128,9 +142,9 @@ All paragraph text and content was written by me.
 + My understanding of the Set Interval Function, which was pivotal to the game's success, was explained to me at [Medium.com](https://medium.com/@eric.stermer/setinterval-simply-put-is-a-timed-loop-652eb54bd5f8) 
 + The highscores retrieved from the local storage are presented as a string of numbers. The code used to convert this string into an array of numbers was sourced from this [Stack Overflow](https://stackoverflow.com/questions/15677869/how-to-convert-a-string-of-numbers-to-an-array-of-numbers) post.
 + The code used to reload the page no matter how the 'game over' modal is closed, was sourced from this [Stack Overflow](https://stackoverflow.com/questions/21578315/how-to-reload-page-on-closing-a-bootstrap-3-modal) post.
-+ [W3Schools](w3schools.com) was a reliable resource throughout my project for it's comprehensive explanation of JavaScript data types and methods. Specifically, the code used to present users with their top 5 highscores owes thanks to W3Schools' teachings on how to add items to an array in place of other values and how to numerically sort an array in ascending order.
++ [W3Schools](w3schools.com) was a reliable resource throughout my project for it's comprehensive explanation of JavaScript data types and methods. Specifically, the code used to present users with their top 5 highscores owes thanks to W3Schools' teaching on how to add items to an array in place of other values, and how to numerically sort an array in ascending order.
 
 ### Acknowledgements <a name="acknowledgemenets"></a>
 Special thanks to, 
-+ Mentor Aaron Sinott, for all our sessions that ran into overtime and for his words of encouragement.
-+ [GBrachetta](https://github.com/GBrachetta) for his invaluable advice, conversation and compassion that kept me going when I felt most defeated.
++ Mentor Aaron Sinott, for all the sessions that ran into overtime and for his words of encouragement.
++ [GBrachetta](https://github.com/GBrachetta) for his invaluable advice, converstaion and compassion that kept me
