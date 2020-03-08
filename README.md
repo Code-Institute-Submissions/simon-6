@@ -13,7 +13,7 @@ A classic memory game designed for all ages to enjoy. The Simon Game is simple:-
 # Table of contents
 1. [UX](#introduction)
     * [Objective](#objective)
-    * [Scope](#scope)
+    * [User stories](#users)
     * [Structure](#structure)
     * [Skeleton](#skeleton)
     * [Design](#surface)
@@ -34,7 +34,19 @@ A classic memory game designed for all ages to enjoy. The Simon Game is simple:-
 + The focus of this project is to build an interactive game that users of all ages can engage with.
 + Users will likely be visting the site in their downtime. That being so, the game should provide a bright and positive experience and fulfill their need to be entertained.
 + The game, as a feature, is fundamental to the site and it should be prioritised in the design.
- 
+
+### User Stories
+"As a user, I would like to ___________"
++ Read instructions on how to play the game
++ Be tested by a game that increases in complexity
++ Have some control and be able to customise elements of the game
++ Be able to play the game by tapping a screen or using a mouse
++ Restart the game at anytime
++ Keep track of my points total and be able to compare with my previous scores
+
+
+
+
 ### Wireframes <a name="wirfeam"></a>
 + The game interface will be relative to the size of the view port. This means that whatever device the game is played on, there should be no overflowing content requiring the user to scroll. 
 
@@ -88,12 +100,14 @@ Content in the central circle is limited to the most important information: <br 
     + Presents the top 5 scores attained by the user in a clean and simple table. 
     + If local storage returns no data for the user, the table is filled with '0'.
     + Opening or closing the modal does not interrupt the playback of the game.
++ Restart the Game
+    + An option that reloads the page so that a user can restart the game with a new sequence
 + Feedback modal 
     + Enables the user to send feedback to the developer via emailjs 
     + Opening or closing the modal does not interrupt the playback of the game.
     + Submitting the feedback via the 'Send Feedback' button clears the inputted values and closes the modal but does not reload the page.
 + Gameover modal 
-    + Triggered as soon as the code evaluates the user input to be unequal to the Simon sequence.
+    + Launched as soon as the code evaluates the user input to be unequal to the Simon sequence.
     + Displays the score acheived for the active game session.
     + The page is reloaded whichever way the modal is closed by the user.
 + Level up
