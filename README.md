@@ -43,7 +43,7 @@ A classic memory game designed for all ages to enjoy. The Simon Game is simple:-
 <div align="center">
 
 Display on large screens: <br /><br />
-  <img src="wireframes/largescreen_ui.png">
+  <img src="wireframes/lg_screen_ui.png">
 
 </div>
 
@@ -68,39 +68,16 @@ Content in the central circle is limited to the most important information: <br 
 
 <div align="center">
 
- Illustrations that support the text are displayed on larger screens <br /><br />
-  <img src="modal_lg_ui.png">
+ Illustrations that support the text are displayed on larger screens but are removed on smaller devices<br /><br />
+  <img src="wireframes/modal_lg_ui.png">      <img src="wireframes/modal_sm_ui.png">
 
 </div>
-
-<div align="center">
-
-On smaller devices the illustrations are removed <br /><br />
-  <img src="modal_sm_ui.png">
-
-</div>
-
-### Structure <a name="structure"></a>
- 
-### Skeleton <a name="skeleton"></a>
-### Surface <a name="surface"></a>
-The game should be bright and positive through the use of bright colours and a minimalistic, uncluttered but intuitive interface. Any other links and information should be available but not in the way of the game. 
-The game usees <b>Londrina Solid</b> for the 
-
-
-
-
-
-Provide a clean uncluttered interface.... The code must be able to start a sequence of colours when a button is click to trigger the start. Getting the game to respond to the user input both in success and in failure.
-
-I want to keep them from being bored so I allow the game to get harder by decreasing the amount of time the flash appears  so that there is less to spent on each colour
-
-
-
 
 
 ## Features <a name="features"></a>
 ### Existing Features <a name="existing_feat"></a>
++ Score system
+    + Every time the user repeats back the complete sequence correctly, 5 points is added to the score and the score is 
 + How To Play modal
     + The modal is accessed via a link, which is primely positioned just beneath the play button for visibility. It provides 2-step instructions for any users who are new to the game.  
 + Settings Model
@@ -119,6 +96,8 @@ I want to keep them from being bored so I allow the game to get harder by decrea
     + Triggered as soon as the code evaluates the user input to be unequal to the Simon sequence.
     + Displays the score acheived within the active game session.
     + The page is reloaded whichever way the modal is closed by the user.
++ Level up
+    + The duration for each colour flash is a variable that  will 
 
 ### Features Left to Implement <a name="future_feat"></a>
 + The opportunity for a user to create a username against which their highscores can be saved
