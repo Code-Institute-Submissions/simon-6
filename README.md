@@ -1,18 +1,18 @@
- <div style="text-align:center;">
+ <div align="center">
 
- <a href="https://fdeboo.github.io/simon/" target="_blank"><img src="/assets/images/simon_logo.png" style="max-width:100px;" alt="Simon Logo"/></a>
+<img src="assets/images/simon_logo.png" alt="Simon Logo"/>
  
  </div>
 
 <div>
 
-A classic memory game designed for all ages to enjoy. The Simon Game is simple:- a set of colours flash in a randomised sequence. The player must respond by repeating the sequence back, clicking on the colours in the order that they appeared. The game features 3 different levels so that it becomes more challenging as it progresses. And options to customize the game sounds and starting levels. View the Simon Game [here](https://github.com/fdeboo/simon)
+A classic memory game designed for all ages to enjoy. The Simon Game is simple:- a set of colours flash in a randomised sequence. The player must respond by repeating the sequence back, clicking on the colours in the order that they appeared. The game features 3 different levels and options to customize the game sounds and starting levels. View the Simon Game [here](https://github.com/fdeboo/simon)
 
 </div>
 
 # Table of contents
 1. [UX](#introduction)
-    * [Strategy](#strategy)
+    * [Objective](#objective)
     * [Scope](#scope)
     * [Structure](#structure)
     * [Skeleton](#skeleton)
@@ -32,19 +32,54 @@ A classic memory game designed for all ages to enjoy. The Simon Game is simple:-
 
 ### Objective <a name="strategy"></a>
 + The focus of this project is to build an interactive game that users of all ages can engage with.
-+ Users will likely be visting the site in their downtime. That being so, the game should provide a bright and positive experience thats fulfills their need to be entertained.
-+ The functionalality of the game is fundamental to the site and so should be the priority of the page.
++ Users will likely be visting the site in their downtime. That being so, the game should provide a bright and positive experience and fulfill their need to be entertained.
++ The functionalality of the game is fundamental to the site and so should be the priority of the site.
  
 ### Wireframes <a name="wirfeam"></a>
-The game interface is full screen relative to the view port. It should not have any overflow thats requires the user to scroll whatever device it is played on.
-![Large Screen UI](wireframes/largescreen_ui.png "Large Scree UI")
-![Mobile Device UI](wireframes/mobile_ui.png "Mobile UI")
++ The game interface will be relative to the size of the view port. This means that whatever device the game is played on, there should no overflowing content that would require a user to scroll. 
+
++ The game interface will be divided into the 4 game colours, each 50% of the viewport's width and height. 
+
++ Only the information that is most necessary to the game will be contained in the centre circle. This includes the play button that will start the game and a link to the game instructions.
+
+
+<div align="center">
+
+Display on large screens: <br /><br />
+  <img src="wireframes/largescreen_ui.png">
+
+</div>
+
+
+<div align="center">
+Display on mobile devices: <br /><br />
+  <img src="wireframes/mobile_ui.png">
+
+</div>
+
++ The central circle is the focal point of the UI and will contain the game logo and the features that are vital to the game; the play button and a link to the instructions. Any other features will be accessible via a toggled navigation bar, keeping the UI minimal and uncluttered. 
+
+<div align="center">
+
+Content in the central circle is limited to the most important information: <br /><br />
+  <img src="wireframes/centercircle.png">
+
+</div>
+
++ Modals are used to display any further content and features, overlaying the game interface but crucially not navigating away from it
+<div align="center">
+
+ <br /><br />
+  <img src="wireframes/modal_ui.png">
+
+</div>
 
 ### Structure <a name="structure"></a>
-Since the game is at the core of the site, it should be  user interface. Any extra features will be available through the subtle means of a nav burgericon that toggles a nav menu. The nav menu will be kept off screen until it is toggled, thus creating an onobstructed space for the game to be  played. Only the features relevant to the gameplay 
+ 
 ### Skeleton <a name="skeleton"></a>
 ### Surface <a name="surface"></a>
 The game should be bright and positive through the use of bright colours and a minimalistic, uncluttered but intuitive interface. Any other links and information should be available but not in the way of the game. 
+The game usees <b>Londrina Solid</b> for the 
 
 
 
@@ -61,7 +96,7 @@ I want to keep them from being bored so I allow the game to get harder by decrea
 ## Features <a name="features"></a>
 ### Existing Features <a name="existing_feat"></a>
 + How To Play modal
-    + The modal is accessed via a link, which is primely positioned just beneath the play button for visibility. It 2-step instructions for any users who are new to the game.  
+    + The modal is accessed via a link, which is primely positioned just beneath the play button for visibility. It provides 2-step instructions for any users who are new to the game.  
 + Settings Model
     + This modal allows the user to choose alternative game sounds from a drop down menu. 
     + The settings are implemented straight away after clicking 'OK' 
@@ -81,7 +116,7 @@ I want to keep them from being bored so I allow the game to get harder by decrea
 
 ### Features Left to Implement <a name="future_feat"></a>
 + The opportunity for a user to create a username against which their highscores can be saved
-+ The opportunity to present the data for the top high scores 
++ High scores presented for all users
 
 
 
@@ -146,5 +181,5 @@ All paragraph text and content was written by me.
 
 ### Acknowledgements <a name="acknowledgemenets"></a>
 Special thanks to, 
-+ Mentor Aaron Sinott, for all the sessions that ran into overtime and for his words of encouragement.
-+ [GBrachetta](https://github.com/GBrachetta) for his invaluable advice, converstaion and compassion that kept me
++ Mentor Aaron Sinott, for the sessions that ran into overtime and for all his words of encouragement.
++ [GBrachetta](https://github.com/GBrachetta) for his invaluable advice, conversation and compassion that made the challenge of the project more tolerable. 
