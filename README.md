@@ -77,7 +77,7 @@ Content in the central circle is limited to the most important information: <br 
 ## Features <a name="features"></a>
 ### Existing Features <a name="existing_feat"></a>
 + Score system
-    + Every time the user repeats back the complete sequence correctly, 5 points is added to the score and the score is 
+    + Every time the user repeats back the complete sequence correctly, 5 points is added to their running score. The points total is updated on the UI so that the user is aware of their progress.
 + How To Play modal
     + The modal is accessed via a link, which is primely positioned just beneath the play button for visibility. It provides 2-step instructions for any users who are new to the game.  
 + Settings Model
@@ -97,13 +97,11 @@ Content in the central circle is limited to the most important information: <br 
     + Displays the score acheived for the active game session.
     + The page is reloaded whichever way the modal is closed by the user.
 + Level up
-    + The duration of each colour flash is decreassed once the user reaches a target score. This triggers a animation on screen that lets the user know of the level up. 
+    + The duration of each colour flash is decreassed once the user reaches a target score. This triggers an animation on screen that lets the user that they have reached a new level. As a result, the speed of the game increases which makes the game more challenging.
 
 ### Features Left to Implement <a name="future_feat"></a>
 + The opportunity for a user to create a username against which their highscores can be saved
-+ High scores presented for all users b
-
-
++ High scores are available for all global users of the game, making the game more competitive
 
 ## Technologies Used <a name="technologies"></a>
 #### Frontend:
@@ -134,6 +132,7 @@ Content in the central circle is limited to the most important information: <br 
 ## Testing <a name="testing"></a>
 
 ## Deployment <a name="deployment"></a>
+#### Remote
 The following steps were taken to deploy the project to GitHub Pages where the Simon Game is hosted:
 
 1. From within Github, navigate to fdeboo/simon
@@ -144,30 +143,35 @@ The following steps were taken to deploy the project to GitHub Pages where the S
 6. A link to the live site is provided
 
 
-### Local
-###
+#### Local
+1. To run this project locally, navigate to the repository on github [here](https://github.com/fdeboo/simon)
+2. Click on the green "Clone or Download" button
+3. Copy the URL from the dropdown
+4. In your local IDE, open the terminal ensure the current working directory is set to where you want the clone to be created
+5. Type <code>git clone</code> and then paste the copied link: <pre><code>git clone https://github.com/fdeboo/simon</code></pre>
+6. Press enter. This completes the deployment.
 
 
 ## Credits <a name="credits"></a>
 
-### Content <a name="content"></a>
+#### Content <a name="content"></a>
 All paragraph text and content was written by me.
 
-### Media <a name="media"></a> 
-#### Images
+#### Media <a name="media"></a> 
+##### Images
 + The illustrations used in the How To Play modal were created by me using Adobe Illustrator
-#### Audio
+##### Audio
 + The audio files for the default Simon Beeps were sourced from [FreeCodeCamp](https://www.freecodecamp.org/) 
 + The audio files for both the Farm Animal and Flatulence sounds were sourced from [Zapsplat](https://www.zapsplat.com/) 
 + The Harpsichord sounds were recorded and provided by [GBrachetta](https://github.com/GBrachetta) 
 
-### Code <a name="code"></a> 
+#### Code <a name="code"></a> 
 + My understanding of the Set Interval Function, which was pivotal to the game's success, was explained to me at [Medium.com](https://medium.com/@eric.stermer/setinterval-simply-put-is-a-timed-loop-652eb54bd5f8) 
 + The highscores retrieved from the local storage are presented as a string of numbers. The code used to convert this string into an array of numbers was sourced from this [Stack Overflow](https://stackoverflow.com/questions/15677869/how-to-convert-a-string-of-numbers-to-an-array-of-numbers) post.
 + The code used to reload the page no matter how the 'game over' modal is closed, was sourced from this [Stack Overflow](https://stackoverflow.com/questions/21578315/how-to-reload-page-on-closing-a-bootstrap-3-modal) post.
 + [W3Schools](w3schools.com) was a reliable resource throughout my project for it's comprehensive explanation of JavaScript data types and methods. Specifically, the code used to present users with their top 5 highscores owes thanks to W3Schools' teaching on how to add items to an array in place of other values, and how to numerically sort an array in ascending order.
 
-### Acknowledgements <a name="acknowledgements"></a>
+#### Acknowledgements <a name="acknowledgements"></a>
 Special thanks to, 
 + Mentor Aaron Sinott, for the sessions that ran into overtime and for all his words of encouragement.
 + [GBrachetta](https://github.com/GBrachetta) for his invaluable advice, conversation and compassion that made the challenge of the project more tolerable. 
