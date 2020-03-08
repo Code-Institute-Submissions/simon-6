@@ -3,7 +3,7 @@
 <img src="assets/images/simon_logo.png" alt="Simon Logo"/>
  
  </div>
-
+<br />
 <div>
 
 A classic memory game designed for all ages to enjoy. The Simon Game is simple:- a set of colours flash in a randomised sequence. The player must respond by repeating the sequence back, clicking on the colours in the order that they appeared. The game features 3 different levels and options to customize the game sounds and starting levels. View the Simon Game [here](https://github.com/fdeboo/simon)
@@ -36,7 +36,7 @@ A classic memory game designed for all ages to enjoy. The Simon Game is simple:-
 + The game, as a feature, is fundamental to the site and it should be prioritised in the design.
  
 ### Wireframes <a name="wirfeam"></a>
-+ The game interface will be relative to the size of the view port. This means that whatever device the game is played on, there should no overflowing content requiring the user to scroll. 
++ The game interface will be relative to the size of the view port. This means that whatever device the game is played on, there should be no overflowing content requiring the user to scroll. 
 
 + The game interface will be divided into the 4 game colours, each 50% of the viewport's width and height. 
 
@@ -94,18 +94,19 @@ Content in the central circle is limited to the most important information: <br 
     + Submitting the feedback via the 'Send Feedback' button clears the inputted values and closes the modal but does not reload the page.
 + Gameover modal 
     + Triggered as soon as the code evaluates the user input to be unequal to the Simon sequence.
-    + Displays the score acheived within the active game session.
+    + Displays the score acheived for the active game session.
     + The page is reloaded whichever way the modal is closed by the user.
 + Level up
-    + The duration for each colour flash is a variable that  will 
+    + The duration of each colour flash is decreassed once the user reaches a target score. This triggers a animation on screen that lets the user know of the level up. 
 
 ### Features Left to Implement <a name="future_feat"></a>
 + The opportunity for a user to create a username against which their highscores can be saved
-+ High scores presented for all users
++ High scores presented for all users b
 
 
 
 ## Technologies Used <a name="technologies"></a>
+#### Frontend:
 + HTML, CSS, Javascript
 + [JQuery](https://jquery.com/)
     + Simplifies access and manipluation of the DOM
@@ -119,6 +120,8 @@ Content in the central circle is limited to the most important information: <br 
     + Provides access to the web fonts used in this project
 + [Font Awesome](https://fontawesome.com/)
     + Provides the icons used in this project to guide the users' navigation.
+
+#### Other:
 + [Visual Studio Code](https://code.visualstudio.com/)
     + The IDE that facilitated the devlopment of this project.
 + [GitHub](https://github.com/)
@@ -164,7 +167,7 @@ All paragraph text and content was written by me.
 + The code used to reload the page no matter how the 'game over' modal is closed, was sourced from this [Stack Overflow](https://stackoverflow.com/questions/21578315/how-to-reload-page-on-closing-a-bootstrap-3-modal) post.
 + [W3Schools](w3schools.com) was a reliable resource throughout my project for it's comprehensive explanation of JavaScript data types and methods. Specifically, the code used to present users with their top 5 highscores owes thanks to W3Schools' teaching on how to add items to an array in place of other values, and how to numerically sort an array in ascending order.
 
-### Acknowledgements <a name="acknowledgemenets"></a>
+### Acknowledgements <a name="acknowledgements"></a>
 Special thanks to, 
 + Mentor Aaron Sinott, for the sessions that ran into overtime and for all his words of encouragement.
 + [GBrachetta](https://github.com/GBrachetta) for his invaluable advice, conversation and compassion that made the challenge of the project more tolerable. 
