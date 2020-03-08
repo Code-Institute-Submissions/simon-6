@@ -33,15 +33,12 @@ A classic memory game designed for all ages to enjoy. The Simon Game is simple:-
 ### Objective <a name="strategy"></a>
 + The focus of this project is to build an interactive game that users of all ages can engage with.
 + Users will likely be visting the site in their downtime. That being so, the game should provide a bright and positive experience and fulfill their need to be entertained.
-+ The functionalality of the game is fundamental to the site and so should be the priority of the site.
++ The game, as a feature, is fundamental to the site and it should be prioritised in the design.
  
 ### Wireframes <a name="wirfeam"></a>
-+ The game interface will be relative to the size of the view port. This means that whatever device the game is played on, there should no overflowing content that would require a user to scroll. 
++ The game interface will be relative to the size of the view port. This means that whatever device the game is played on, there should no overflowing content requiring the user to scroll. 
 
 + The game interface will be divided into the 4 game colours, each 50% of the viewport's width and height. 
-
-+ Only the information that is most necessary to the game will be contained in the centre circle. This includes the play button that will start the game and a link to the game instructions.
-
 
 <div align="center">
 
@@ -66,11 +63,20 @@ Content in the central circle is limited to the most important information: <br 
 
 </div>
 
-+ Modals are used to display any further content and features, overlaying the game interface but crucially not navigating away from it
++ Modals are used to display any further content and features, overlaying the game interface but crucially not navigating away from it.
++ Each modal should follow the same layout for consistency.
+
 <div align="center">
 
- <br /><br />
-  <img src="wireframes/modal_ui.png">
+ Illustrations that support the text are displayed on larger screens <br /><br />
+  <img src="modal_lg_ui.png">
+
+</div>
+
+<div align="center">
+
+On smaller devices the illustrations are removed <br /><br />
+  <img src="modal_sm_ui.png">
 
 </div>
 
