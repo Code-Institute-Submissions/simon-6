@@ -38,9 +38,10 @@ const sounds = {
 
 let colorComp = [],
     points = 0,
+    index = 0,
     userArray = [],
     highScoresStr = "",
-    highScoresArr = [],
+    highScoresArr,
     delay = milliseconds.stageOne,
     customIndex,
     soundSetting = getAudio();
@@ -95,9 +96,6 @@ function playGame() {
 }
 
 /********************** USER INPUT **********************/
-
-let i = 0; //i must be declared outside the function so that i can increment everytime a user clicks to add to the array
-
 $(".color-btn")
     .children()
     .click(function() {
@@ -134,10 +132,10 @@ $(".color-btn")
  * If two values don't match, game over.
  */
 function compareIndex() {
-    if (userArray[i] === colorComp[i]) {
+    if (userArray[index] === colorComp[index]) {
         if (userArray.length === colorComp.length) {
             userArray = [];
-            i = 0;
+            index = 0;
             points += 5;
             $("#score").html("points: " + points);
 
@@ -149,7 +147,7 @@ function compareIndex() {
                 playGame(); //lines
             }, 1000);
         } else {
-            i++;
+            index++;
         }
     } else {
         $("#gamescore").html(points);
@@ -190,7 +188,11 @@ function getScores() {
 }
 
 /*
-* addScore()  checks the highscores array 
+* addScore() retrieves the current highscores as a numbered array by calling getScores()
+* First, it Checks to see that the points for that session is greater than the smallest highscore value. 
+* If yes, it removes the smallest value from the highscores array and replaces it with the new score
+* The highscores array is then re-sorted to make sure the values are presented in descending order
+* Saves the updated highscores array back to the local storage
 */
 function addScore(points) {
     highScoresArr = getScores();
@@ -205,6 +207,10 @@ function addScore(points) {
     }
 }
 
+/* When the trigger button is clicked, retrieves the current highscores as a numbered array by calling getScores() and populates a table
+* Iterates through the array to see if any of the values are zero. If yes, the value is replaced with "No Data Found"
+* The html for each of the table data elements is populated with the values of the each array index respectively
+*/
 $("#trigger").click(() => {
     highScoresArr = getScores();
     for (let i = 0; i < 5; i++) {
