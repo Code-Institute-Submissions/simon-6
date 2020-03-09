@@ -10,8 +10,9 @@ let colorComp = [],
         stageTwo: 700,
         stageThree: 400
     },
-    delay = milliseconds.stageOne;
-customIndex, (soundSetting = getAudio());
+    delay = milliseconds.stageOne,
+    customIndex, 
+    soundSetting = getAudio();
 
 const colorPool = ["red", "green", "yellow", "blue"];
 const sounds = {
@@ -92,7 +93,7 @@ function playGame() {
 
         i++;
     }, delay);
-} //close of PlayGame function.
+} 
 
 /********************** USER INPUT **********************/
 
@@ -108,9 +109,6 @@ $(".color_btn")
             });
 
         userArray[userArray.length] = colorClass;
-        //console.log(colorId + "/." + colorClass + "/" + soundId);
-        console.log(userArray + " vs " + colorComp);
-
         $(colorId).addClass(colorClass + " unclickable");
         $(colorId)
             .parent()
@@ -132,12 +130,13 @@ $(".color_btn")
 /**
  * compareIndex() is called every time a colour is clicked on.
  * compareIndex() compares each index in the accumulating userArray, against the corresponding index in the colorComp array.
+ * If the arrays have matching values and length, clear the user array ready for the next round
+ * If the values match but the arrays are not the same length, allows the user to add the next colour.
+ * If two values don't match, game over.
  */
 function compareIndex() {
     if (userArray[i] === colorComp[i]) {
         if (userArray.length === colorComp.length) {
-            // if the arrays have matching values and length, clear the user array ready for the next round
-            //console.log(userArray[i] + " vs " + colorComp[i]);
             userArray = [];
             i = 0;
             points += 5;
@@ -151,14 +150,10 @@ function compareIndex() {
                 playGame(); //lines
             }, 1000);
         }
-
-        //if the values match but the arrays are not the same length, allows the user to add the next colour.
         else {
             i++;
         }
     }
-
-    //if two values don't match, game over.
     else {
         $("#gamescore").html(points);
         $("#gameOver").modal();
@@ -175,16 +170,12 @@ function compareIndex() {
 function levelup() {
     if (points >= 20) {
         delay = milliseconds.stageTwo;
-        console.log("level up!");
     } else if (points == 40) {
         delay = milliseconds.stageThree;
-        console.log("level up");
     } else {
         delay = milliseconds.stageOne;
-        console.log("level unchanged");
     }
 }
-
 /************************ HIGH SCORES ***********************/
 function getScores() {
     highScores_Str = localStorage.getItem("scores"); //Returns a string
@@ -201,20 +192,17 @@ function addScore(points) {
     highScores_Arr = getScores();
 
     if (points < highScores_Arr[4]) {
-        console.log("good effort");
     } else {
         highScores_Arr.splice(4, 1, points);
         highScores_Arr.sort(function(a, b) {
             return b - a;
         });
-        console.log(highScores_Arr);
         localStorage.setItem("scores", highScores_Arr);
     }
 }
 
 $("#trigger").click(function() {
     highScores_Arr = getScores();
-    console.log(highScores_Arr);
     $("#1st").html(highScores_Arr[0]);
     $("#2nd").html(highScores_Arr[1]);
     $("#3rd").html(highScores_Arr[2]);
@@ -230,7 +218,6 @@ function returntoDefault() {
 }
 
 function setStorage() {
-    console.log("function executed");
     let preference = $("#gameSound").val();
     localStorage.setItem("audio-pref", preference);
     $("#gameSettings").modal("hide");
