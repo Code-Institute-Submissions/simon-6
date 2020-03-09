@@ -82,6 +82,9 @@ Content in the central circle is limited to the most important information: <br 
 
 </div>
 
++ The 4 colours are all div elements with a further div nested inside them.
++ The nested div is passed
+
 #### Design <a name="design"></a>
 + The design is intended to be minimalistic but should provide enough information to be intuitive. 
 + The colours of Simon game fill the UI so that it feels vibrant and positive.
@@ -94,6 +97,7 @@ Content in the central circle is limited to the most important information: <br 
 + The Modal headings also use Londrina Solid, but using a lighter weight for better legibility.
 + All headings and titles are written in lowercase to compliment the informality of the site.
 + Montserrat was chosen for all paragraph text and navigational links where legibility was most important. The font pairs well with Londrina Solid because it is neutral, has a clean rounded form and is light in weight.
+
 
 ## Features <a name="features"></a>
 #### Existing Features <a name="existing_feat"></a>

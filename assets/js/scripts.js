@@ -11,28 +11,28 @@ const sounds = {
         "assets/sounds/cow.mp3",
         "assets/sounds/fart-1.mp3",
         "assets/sounds/note-1.mp3",
-        "assets/sounds/null.mp3"
+        "assets/sounds/silence-1.mp3"
     ],
     green: [
         "assets/sounds/green.mp3",
         "assets/sounds/horse.mp3",
         "assets/sounds/fart-2.mp3",
         "assets/sounds/note-2.mp3",
-        "assets/sounds/null.mp3"
+        "assets/sounds/silence-2.mp3"
     ],
     yellow: [
         "assets/sounds/yellow.mp3",
         "assets/sounds/goat.mp3",
         "assets/sounds/fart-3.mp3",
         "assets/sounds/note-3.mp3",
-        "assets/sounds/null.mp3"
+        "assets/sounds/silence=3.mp3"
     ],
     blue: [
         "assets/sounds/blue.mp3",
         "assets/sounds/pig.mp3",
         "assets/sounds/fart-4.mp3",
         "assets/sounds/note-4.mp3",
-        "assets/sounds/null.mp3"
+        "assets/sounds/silence-4.mp3"
     ]
 };
 
@@ -266,7 +266,7 @@ function audioSource(colour) {
     } else if (soundSetting.includes("harpsichord") === true) {
         customIndex = 3;
     } else {
-        return ;
+        customIndex = 4;
     }
 
     return sounds[colour][customIndex];
