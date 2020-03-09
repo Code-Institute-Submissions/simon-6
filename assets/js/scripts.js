@@ -44,8 +44,7 @@ let highScoresStr = "";
 let highScoresArr;
 let customIndex;
 let soundSetting = getAudio();
-let levelSetting = getLevel();
-let delay = milliseconds.levelSetting;
+let delay = milliseconds.stageOne;
 
 /**
  * playgame() takes a value at random from the ColorPool array
@@ -257,19 +256,7 @@ function submitSettings() {
 /*setStorage() takes the value of Game Sounds drop down and stores them as the selected value in local storage*/
 function setStorage() {
     let soundPref = $("#gameSound").val();
-    let levelPref = $("#level").val();
     localStorage.setItem("audio-pref", soundPref);
-    localStorage.setItem("start-pref", levelPref);
-}
-
-
-function getLevel() {
-    let startLevel = localStorage.getItem("start-pref");
-    if (startLevel === null) {
-        startLevel = "stageOne";
-    }
-    console.log(startLevel);
-    return startLevel;
 }
 
 /* getAudio() retrieves the saved value from local storage. If null, change it to the default value */
