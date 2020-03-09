@@ -58,12 +58,10 @@ function playGame() {
         colorPool[Math.floor(Math.random() * colorPool.length)];
 
     /**
-     * setInterval() iterates through the colorComp array. 
-     * It takes the value at each index and creates a class and 2 id's, 
-     * Stores them in separate variables. 
-    
-     * One id is used to target a sound clip. The other is used to target the relevant div element in the document. 
-     *The class is then used to apply a set of CSS styles to the div until the SetTimeout function ends and the class is removed.
+     * setInterval() iterates through the colorComp array.
+     * Takes the value at each index and creates a class and an id
+     * The id targets the relevant div element in the document.
+     * The class applies a set of CSS styles to the div until the SetTimeout function ends and the class is removed.
      */
     let timer = setInterval(() => {
         if (i === colorComp.length - 1) {
@@ -93,7 +91,6 @@ function playGame() {
         i++;
     }, delay);
 }
-
 
 /********************** USER INPUT **********************/
 $(".color-btn")
@@ -143,8 +140,8 @@ function compareIndex() {
                 $(".color-btn")
                     .children()
                     .addClass("unclickable");
-                levelup(); 
-                playGame(); 
+                levelup();
+                playGame();
             }, 1000);
         } else {
             index++;
@@ -188,12 +185,12 @@ function getScores() {
 }
 
 /*
-* addScore() retrieves the current highscores as a numbered array by calling getScores()
-* First, it Checks to see that the points for that session is greater than the smallest highscore value. 
-* If yes, it removes the smallest value from the highscores array and replaces it with the new score
-* The highscores array is then re-sorted to make sure the values are presented in descending order
-* Saves the updated highscores array back to the local storage
-*/
+ * addScore() retrieves the current highscores as a numbered array by calling getScores()
+ * First, it Checks to see that the points for that session is greater than the smallest highscore value.
+ * If yes, it removes the smallest value from the highscores array and replaces it with the new score
+ * The highscores array is then re-sorted to make sure the values are presented in descending order
+ * Saves the updated highscores array back to the local storage
+ */
 function addScore(points) {
     highScoresArr = getScores();
 
@@ -208,9 +205,9 @@ function addScore(points) {
 }
 
 /* When the trigger button is clicked, retrieves the current highscores as a numbered array by calling getScores() and populates a table
-* Iterates through the array to see if any of the values are zero. If yes, the value is replaced with "No Data Found"
-* The html for each of the table data elements is populated with the values of the each array index respectively
-*/
+ * Iterates through the array to see if any of the values are zero. If yes, the value is replaced with "No Data Found"
+ * The html for each of the table data elements is populated with the values of the each array index respectively
+ */
 $("#trigger").click(() => {
     highScoresArr = getScores();
     for (let i = 0; i < 5; i++) {
@@ -226,28 +223,40 @@ $("#trigger").click(() => {
 });
 
 //****************** GAME CUSTOMISATION *****************
-function returntoDefault() {
+/* When the settings modal is closed, refresh the values and set the local storage to the default values */
+$(gameSettings).on("show.bs.modal", () => {
+    $("#gameSound").val(soundSetting);
+});
+
+$("#settingX").click(() => {
     $("#custom-options").trigger("reset");
+    setStorage();
     $("#gameSettings").modal("hide");
-    return false;
+});
+
+function submitSettings() {
+    setStorage();
+    $("#gameSettings").modal("hide");
+    return false;  
 }
 
+/*setStorage() takes the value of Game Sounds drop down and stores them as the selected value in local storage*/
 function setStorage() {
     let preference = $("#gameSound").val();
     localStorage.setItem("audio-pref", preference);
-    $("#gameSettings").modal("hide");
-    return false;
 }
 
+/* getAudio() takes the value of Game Sounds drop down and stores as the selected value in local storage */
 function getAudio() {
-    let pref = localStorage.getItem("audio-pref");
-    if (pref === null) {
-        pref = "default";
+    let prefs = localStorage.getItem("audio-pref");
+    if (prefs === null) {
+        prefs = "default";
     }
-    return pref;
+    return prefs;
 }
 
 function audioSource(colour) {
+    soundSetting = getAudio();
     if (soundSetting.includes("default") === true) {
         customIndex = 0;
     } else if (soundSetting.includes("farm") === true) {
@@ -257,7 +266,7 @@ function audioSource(colour) {
     } else if (soundSetting.includes("harpsichord") === true) {
         customIndex = 3;
     } else {
-        customIndex = 4;
+        return ;
     }
 
     return sounds[colour][customIndex];
