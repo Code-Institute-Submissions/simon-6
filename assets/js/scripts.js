@@ -177,12 +177,16 @@ function levelup() {
     }
 }
 /************************ HIGH SCORES ***********************/
+/* getScores() fetches the highscores from local storage, which are returned as a single string
+* If there is no data available, the string is set to to 0,0,0,0,0 
+* The highscores  string is converted from a string to an array (of numbers). Code Courtesy of Stack Overflow
+*/
 function getScores() {
-    highScores_Str = localStorage.getItem("scores"); //Returns a string
+    highScores_Str = localStorage.getItem("scores"); 
     if (highScores_Str === null) {
         highScores_Str = "0,0,0,0,0";
     }
-    //Convert the highscores from a string to an array (of numbers). Courtesy of Stack Overflow:
+
     return highScores_Str.split(",").map(function(item) {
         return parseInt(item);
     });
@@ -203,6 +207,12 @@ function addScore(points) {
 
 $("#trigger").click(function() {
     highScores_Arr = getScores();
+    for (let i = 0; i < 5; i++) {
+        if (highScores_Arr[i] == 0) {
+            highScores_Arr[i] = "No user data currently available"
+        }
+        i++;
+    }
     $("#1st").html(highScores_Arr[0]);
     $("#2nd").html(highScores_Arr[1]);
     $("#3rd").html(highScores_Arr[2]);
@@ -249,10 +259,9 @@ function audioSource(colour) {
 }
 
 /************************ EMAIL FEEDBACK ***********************/
-(function() {
+(() => {
     emailjs.init("user_ZLm8FPXGvg2bfyfHS3yIq");
 })();
-
 function sendMail(feedbackForm) {
     emailjs
         .send("gmail", "feedback", {
@@ -260,8 +269,7 @@ function sendMail(feedbackForm) {
             from_email: feedbackForm.emailaddress.value,
             user_feedback: feedbackForm.feedback.value
         })
-
-        .then(function(response) {
+        .then(() => {
             $(".form-data").val("");
             $("#feedbackModal").modal("hide");
         });
