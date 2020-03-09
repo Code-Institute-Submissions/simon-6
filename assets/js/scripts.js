@@ -36,15 +36,15 @@ const sounds = {
     ]
 };
 
-let colorComp = [],
-    points = 0,
-    index = 0,
-    userArray = [],
-    highScoresStr = "",
-    highScoresArr,
-    delay = milliseconds.stageOne,
-    customIndex,
-    soundSetting = getAudio();
+let colorComp = [];
+let points = 0;
+let index = 0;
+let userArray = [];
+let highScoresStr = "";
+let highScoresArr;
+let delay = milliseconds.stageOne;
+let customIndex;
+let soundSetting = getAudio();
 
 /**
  * playgame() takes a value at random from the ColorPool array
@@ -72,28 +72,28 @@ function playGame() {
                 .removeClass("unclickable");
             clearInterval(timer);
         }
-
         let colorId = "#" + colorComp[i],
             colorClass = colorComp[i],
             sound = new Howl({
-                src: [audioSource(colorComp[i])]
+                src: [audioSource(colorComp[i])],
+                onplay: () => {
+                    $(colorId).addClass(colorClass);
+                    $(colorId)
+                        .parent()
+                        .addClass("glowlayer");
+                },
+                onend: () => {
+                    $(colorId).removeClass(colorClass);
+                    $(colorId)
+                        .parent()
+                        .removeClass("glowlayer");
+                }
             });
-
-        $(colorId).addClass(colorClass);
-        $(colorId)
-            .parent()
-            .addClass("glowlayer");
         sound.play();
-        setTimeout(() => {
-            $(colorId).removeClass(colorClass);
-            $(colorId)
-                .parent()
-                .removeClass("glowlayer");
-        }, 800);
-
         i++;
     }, delay);
 }
+
 
 /********************** USER INPUT **********************/
 $(".color-btn")
@@ -143,8 +143,8 @@ function compareIndex() {
                 $(".color-btn")
                     .children()
                     .addClass("unclickable");
-                levelup(); //lines
-                playGame(); //lines
+                levelup(); 
+                playGame(); 
             }, 1000);
         } else {
             index++;

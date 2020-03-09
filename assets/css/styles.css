@@ -104,6 +104,10 @@ body {
     color: #fff;
 }
 
+.fade-circle {
+    
+}
+
 /*----------------------------- Simon Colours ----------------------------- */
 .color-btn {
     height: 50%;
@@ -203,6 +207,11 @@ body {
     color: #fff;
 }
 
+.modTitle p {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
 h2 {
     font-family: "Londrina Solid", cursive;
     font-size: 2em;
@@ -276,4 +285,4 @@ th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
-/*----------------------------- Media Queries ----------------------------- */
+

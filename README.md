@@ -14,9 +14,8 @@ A classic memory game designed for all ages to enjoy. The Simon Game is simple:-
 1. [UX](#introduction)
     * [Objective](#objective)
     * [User stories](#users)
-    * [Structure](#structure)
-    * [Skeleton](#skeleton)
-    * [Design](#surface)
+    * [Wireframes](#wireframes)
+    * [Design Notes](#design)
 2. [Features](#features)
     * [Existing Features](#existing_feat)
     * [Features left to implment](#future_feat)
@@ -30,12 +29,12 @@ A classic memory game designed for all ages to enjoy. The Simon Game is simple:-
 
 ## UX <a name="introduction"></a>
 
-### Objective <a name="strategy"></a>
+#### Objective <a name="strategy"></a>
 + The focus of this project is to build an interactive game that users of all ages can engage with.
 + Users will likely be visting the site in their downtime. That being so, the game should provide a bright and positive experience and fulfill their need to be entertained.
 + The game, as a feature, is fundamental to the site and it should be prioritised in the design.
 
-### User Stories
+#### User Stories <a name="users"></a>
 "As a user, I would like to ___________"
 + Read instructions on how to play the game
 + Be tested by a game that increases in complexity
@@ -45,9 +44,7 @@ A classic memory game designed for all ages to enjoy. The Simon Game is simple:-
 + Keep track of my points total and be able to compare with my previous scores
 
 
-
-
-### Wireframes <a name="wirfeam"></a>
+#### Wireframes <a name="wireframes"></a>
 + The game interface will be relative to the size of the view port. This means that whatever device the game is played on, there should be no overflowing content requiring the user to scroll. 
 
 + The game interface will be divided into the 4 game colours, each 50% of the viewport's width and height. 
@@ -85,9 +82,21 @@ Content in the central circle is limited to the most important information: <br 
 
 </div>
 
+#### Design <a name="design"></a>
++ The design is intended to be minimalistic but should provide enough information to be intuitive. 
++ The colours of Simon game fill the UI so that it feels vibrant and positive.
++ The game takes precedence over everything else. The navigation bar providing any extra links will be tucked away off screen and toggled down from the top using a imple burger icon.
++ Font Awesome icons are employed as visual cues to help make the UI as intuitive as possible. It is important that these are used in moderation so that they do not become distracting. 
+
+##### Typography
++ The fonts chosen for this project are <b>"Londrina Solid"</b> and <b>"Montserrat."</b> from google fonts
++ Londrina Solid is used for the Game Title and headings. It exudes friendly character and stability due to a combination of it's rounded corners and solid weight.
++ The Modal headings also use Londrina Solid, but using a lighter weight for better legibility.
++ All headings and titles are written in lowercase to compliment the informality of the site.
++ Montserrat was chosen for all paragraph text and navigational links where legibility was most important. The font pairs well with Londrina Solid because it is neutral, has a clean rounded form and is light in weight.
 
 ## Features <a name="features"></a>
-### Existing Features <a name="existing_feat"></a>
+#### Existing Features <a name="existing_feat"></a>
 + Score system
     + Every time the user repeats back the complete sequence correctly, 5 points is added to their running score. The points total is updated on the UI so that the user is aware of their progress.
 + How To Play modal
@@ -113,13 +122,14 @@ Content in the central circle is limited to the most important information: <br 
 + Level up
     + The duration of each colour flash is decreassed once the user reaches a target score. This triggers an animation on screen that lets the user that they have reached a new level. As a result, the speed of the game increases which makes the game more challenging.
 
-### Features Left to Implement <a name="future_feat"></a>
+#### Features Left to Implement <a name="future_feat"></a>
 + The opportunity for a user to create a username against which their highscores can be saved
 + High scores are available for all global users of the game, making the game more competitive
 
 ## Technologies Used <a name="technologies"></a>
 #### Frontend:
 + HTML, CSS, Javascript
+    + Frontend programming languages
 + [JQuery](https://jquery.com/)
     + Simplifies access and manipluation of the DOM
 + [Bootstrap](https://getbootstrap.com/)
@@ -139,11 +149,19 @@ Content in the central circle is limited to the most important information: <br 
 + [GitHub](https://github.com/)
     + The platform where the project code is stored remotely
 + Adobe Illustrator
-    + Facilitated the creation of the images used in this project 
-
+    + Facilitated the creation of images used in this project 
 
 
 ## Testing <a name="testing"></a>
+#### Validators
++ HTML
+    + [W3C Markup Validation](https://validator.w3.org/)
+        + No Errors reported
++ CSS
+    + [CSS Lint](http://csslint.net/)
++ Javascript
+    + [Javascript Lint](Lint)
+
 
 ## Deployment <a name="deployment"></a>
 #### Remote
@@ -188,4 +206,4 @@ All paragraph text and content was written by me.
 #### Acknowledgements <a name="acknowledgements"></a>
 Special thanks to, 
 + Mentor Aaron Sinott, for the sessions that ran into overtime and for all his words of encouragement.
-+ [GBrachetta](https://github.com/GBrachetta) for his invaluable advice, conversation and compassion that made the challenge of the project more tolerable. 
++ [GBrachetta](https://github.com/GBrachetta) for his invaluable advice, conversation and compassion that made the most challenging parts of the project more tolerable. 
