@@ -11,41 +11,39 @@ let colorComp = [],
         stageThree: 400
     },
     delay = milliseconds.stageOne;
-    customIndex,
-    soundSetting = getAudio();
+customIndex, (soundSetting = getAudio());
 
 const colorPool = ["red", "green", "yellow", "blue"];
 const sounds = {
-        red: [
-            "assets/sounds/red.mp3",
-            "assets/sounds/cow.mp3",
-            "assets/sounds/fart-1.mp3",
-            "assets/sounds/note-1.mp3",
-            "assets/sounds/null.mp3"
-        ],
-        green: [
-            "assets/sounds/green.mp3",
-            "assets/sounds/horse.mp3",
-            "assets/sounds/fart-2.mp3",
-            "assets/sounds/note-2.mp3",
-            "assets/sounds/null.mp3"
-        ],
-        yellow: [
-            "assets/sounds/yellow.mp3",
-            "assets/sounds/goat.mp3",
-            "assets/sounds/fart-3.mp3",
-            "assets/sounds/note-3.mp3",
-            "assets/sounds/null.mp3"
-        ],
-        blue: [
-            "assets/sounds/blue.mp3",
-            "assets/sounds/pig.mp3",
-            "assets/sounds/fart-4.mp3",
-            "assets/sounds/note-4.mp3",
-            "assets/sounds/null.mp3"
-        ]
-    };
-
+    red: [
+        "assets/sounds/red.mp3",
+        "assets/sounds/cow.mp3",
+        "assets/sounds/fart-1.mp3",
+        "assets/sounds/note-1.mp3",
+        "assets/sounds/null.mp3"
+    ],
+    green: [
+        "assets/sounds/green.mp3",
+        "assets/sounds/horse.mp3",
+        "assets/sounds/fart-2.mp3",
+        "assets/sounds/note-2.mp3",
+        "assets/sounds/null.mp3"
+    ],
+    yellow: [
+        "assets/sounds/yellow.mp3",
+        "assets/sounds/goat.mp3",
+        "assets/sounds/fart-3.mp3",
+        "assets/sounds/note-3.mp3",
+        "assets/sounds/null.mp3"
+    ],
+    blue: [
+        "assets/sounds/blue.mp3",
+        "assets/sounds/pig.mp3",
+        "assets/sounds/fart-4.mp3",
+        "assets/sounds/note-4.mp3",
+        "assets/sounds/null.mp3"
+    ]
+};
 
 /**
  * playgame() takes a value at random from the ColorPool array
@@ -67,7 +65,7 @@ function playGame() {
      *The class is then used to apply a set of CSS styles to the div until the SetTimeout function ends and the class is removed.
      */
     let timer = setInterval(function() {
-        if (i === colorComp.length -1) {
+        if (i === colorComp.length - 1) {
             $(".color_btn")
                 .children()
                 .removeClass("unclickable");
@@ -76,8 +74,8 @@ function playGame() {
 
         let colorId = "#" + colorComp[i],
             colorClass = colorComp[i],
-            sound = new Howl({ 
-                src: [audioSource(colorComp[i])] 
+            sound = new Howl({
+                src: [audioSource(colorComp[i])]
             });
 
         $(colorId).addClass(colorClass);
@@ -105,8 +103,8 @@ $(".color_btn")
     .click(function() {
         let colorClass = this.id,
             colorId = "#" + this.id,
-            sound = new Howl({ 
-                src: [audioSource(colorClass)] 
+            sound = new Howl({
+                src: [audioSource(colorClass)]
             });
 
         userArray[userArray.length] = colorClass;
@@ -129,49 +127,49 @@ $(".color_btn")
         setTimeout(() => {
             compareIndex();
         }, 500);
-
-        /**
-         * compareIndex() is called every time a colour is clicked on.
-         * compareIndex() compares each index in the accumulating userArray, against the corresponding index in the colorComp array.
-         */
-        function compareIndex() {
-            if (userArray[i] === colorComp[i]) {
-                if (userArray.length === colorComp.length) {
-                    // if the arrays have matching values and length, clear the user array ready for the next round
-                    //console.log(userArray[i] + " vs " + colorComp[i]);
-                    userArray = [];
-                    i = 0;
-                    points += 5;
-                    $("#score").html("points: " + points);
-
-                    setTimeout(() => {
-                        $(".color_btn")
-                            .children()
-                            .addClass("unclickable");
-                        levelup(); //lines 
-                        playGame(); //lines 
-                    }, 1000);
-                }
-
-                //if the values match but the arrays are not the same length, allows the user to add the next colour.
-                else {
-                    i++;
-                }
-            }
-
-            //if two values don't match, game over.
-            else {
-                $("#gamescore").html(points);
-                $("#gameOver").modal();
-                addScore(points);
-                $("#gameOver")
-                    .on("hide.bs.modal", function() {
-                        location.reload();
-                    })
-                    .modal("show");
-            }
-        }
     });
+
+/**
+ * compareIndex() is called every time a colour is clicked on.
+ * compareIndex() compares each index in the accumulating userArray, against the corresponding index in the colorComp array.
+ */
+function compareIndex() {
+    if (userArray[i] === colorComp[i]) {
+        if (userArray.length === colorComp.length) {
+            // if the arrays have matching values and length, clear the user array ready for the next round
+            //console.log(userArray[i] + " vs " + colorComp[i]);
+            userArray = [];
+            i = 0;
+            points += 5;
+            $("#score").html("points: " + points);
+
+            setTimeout(() => {
+                $(".color_btn")
+                    .children()
+                    .addClass("unclickable");
+                levelup(); //lines
+                playGame(); //lines
+            }, 1000);
+        }
+
+        //if the values match but the arrays are not the same length, allows the user to add the next colour.
+        else {
+            i++;
+        }
+    }
+
+    //if two values don't match, game over.
+    else {
+        $("#gamescore").html(points);
+        $("#gameOver").modal();
+        addScore(points);
+        $("#gameOver")
+            .on("hide.bs.modal", function() {
+                location.reload();
+            })
+            .modal("show");
+    }
+}
 
 /************************ LEVEL UP ************************/
 function levelup() {
@@ -226,9 +224,9 @@ $("#trigger").click(function() {
 
 //****************** GAME CUSTOMISATION *****************
 function returntoDefault() {
-$('#custom-options').trigger("reset");
-$("#gameSettings").modal("hide");
-return false;
+    $("#custom-options").trigger("reset");
+    $("#gameSettings").modal("hide");
+    return false;
 }
 
 function setStorage() {
@@ -261,7 +259,6 @@ function audioSource(colour) {
     }
 
     return sounds[colour][customIndex];
-
 }
 
 /************************ EMAIL FEEDBACK ***********************/
