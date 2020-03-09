@@ -42,9 +42,10 @@ let index = 0;
 let userArray = [];
 let highScoresStr = "";
 let highScoresArr;
-let delay = milliseconds.stageOne;
 let customIndex;
 let soundSetting = getAudio();
+let levelSetting = getLevel();
+let delay = milliseconds.levelSetting;
 
 /**
  * playgame() takes a value at random from the ColorPool array
@@ -87,6 +88,7 @@ function playGame() {
                         .removeClass("glowlayer");
                 }
             });
+            console.log(delay);
         sound.play();
         i++;
     }, delay);
@@ -114,11 +116,11 @@ $(".color-btn")
             $(colorId)
                 .parent()
                 .removeClass("glowlayer");
-        }, 400);
+        }, 300);
 
         setTimeout(() => {
             compareIndex();
-        }, 500);
+        }, 400);
     });
 
 /**
@@ -135,14 +137,14 @@ function compareIndex() {
             index = 0;
             points += 5;
             $("#score").html("points: " + points);
+            levelup();
 
             setTimeout(() => {
                 $(".color-btn")
                     .children()
                     .addClass("unclickable");
-                levelup();
                 playGame();
-            }, 1000);
+            }, 1200);
         } else {
             index++;
         }
@@ -160,12 +162,24 @@ function compareIndex() {
 
 /************************ LEVEL UP ************************/
 function levelup() {
-    if (points >= 20) {
+    if (points == 20) {
+        $("#animate").fadeToggle(300);
         delay = milliseconds.stageTwo;
+
+        setTimeout(() => {
+            $("#animate").fadeToggle(300);
+        }, 1000);
+        
     } else if (points == 40) {
+        $("#animate").fadeToggle(300);
         delay = milliseconds.stageThree;
+
+        setTimeout(() => {
+            $("#animate").fadeToggle(300);
+        }, 1000);
+
     } else {
-        delay = milliseconds.stageOne;
+        return false;
     }
 }
 /************************ HIGH SCORES ***********************/
@@ -223,7 +237,7 @@ $("#trigger").click(() => {
 });
 
 //****************** GAME CUSTOMISATION *****************
-/* When the settings modal is closed, refresh the values and set the local storage to the default values */
+/* When the settings modal is opened, show the values from the local storage*/
 $(gameSettings).on("show.bs.modal", () => {
     $("#gameSound").val(soundSetting);
 });
@@ -242,11 +256,23 @@ function submitSettings() {
 
 /*setStorage() takes the value of Game Sounds drop down and stores them as the selected value in local storage*/
 function setStorage() {
-    let preference = $("#gameSound").val();
-    localStorage.setItem("audio-pref", preference);
+    let soundPref = $("#gameSound").val();
+    let levelPref = $("#level").val();
+    localStorage.setItem("audio-pref", soundPref);
+    localStorage.setItem("start-pref", levelPref);
 }
 
-/* getAudio() takes the value of Game Sounds drop down and stores as the selected value in local storage */
+
+function getLevel() {
+    let startLevel = localStorage.getItem("start-pref");
+    if (startLevel === null) {
+        startLevel = "stageOne";
+    }
+    console.log(startLevel);
+    return startLevel;
+}
+
+/* getAudio() retrieves the saved value from local storage. If null, change it to the default value */
 function getAudio() {
     let prefs = localStorage.getItem("audio-pref");
     if (prefs === null) {
@@ -289,3 +315,7 @@ function sendMail(feedbackForm) {
         });
     return false;
 }
+
+
+
+
