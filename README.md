@@ -82,8 +82,6 @@ Content in the central circle is limited to the most important information: <br 
 
 </div>
 
-+ The 4 colours are all div elements with a further div nested inside them.
-+ The nested div is passed
 
 #### Design <a name="design"></a>
 + The design is intended to be minimalistic but should provide enough information to be intuitive. 
@@ -158,14 +156,27 @@ Content in the central circle is limited to the most important information: <br 
 
 ## Testing <a name="testing"></a>
 #### Validators
+
+The following services were used to check the web code:
+
 + HTML
     + [W3C Markup Validation](https://validator.w3.org/)
-        + No Errors reported
 + CSS
     + [CSS Lint](http://csslint.net/)
 + Javascript
-    + [Javascript Lint](Lint)
+    + [Javascript Lint](https://jshint.com/)
 
+#### Manual
+    These were the manual tests performed and passed:
+
+Attempted to click while the sequence was playing.
+Tried to change the sounds halfway through the game.
+Restarted the game while playing.
+Closed browser and reopened to find last selected sounds.
+
+#### Know bugs
+At faster speed levels, consecutive flashes of the same colour blend into one.
+This will be addressed in a later release of the app.
 
 ## Deployment <a name="deployment"></a>
 #### Remote
@@ -199,7 +210,7 @@ All paragraph text and content was written by me.
 ##### Audio
 + The audio files for the default Simon Beeps were sourced from [FreeCodeCamp](https://www.freecodecamp.org/) 
 + The audio files for both the Farm Animal and Flatulence sounds were sourced from [Zapsplat](https://www.zapsplat.com/) 
-+ The Harpsichord sounds were recorded and provided by [GBrachetta](https://github.com/GBrachetta) 
++ The Harpsichord and Silence sounds were recorded and provided by [GBrachetta](https://github.com/GBrachetta) 
 
 #### Code <a name="code"></a> 
 + My understanding of the Set Interval Function, which was pivotal to the game's success, was explained to me at [Medium.com](https://medium.com/@eric.stermer/setinterval-simply-put-is-a-timed-loop-652eb54bd5f8) 
