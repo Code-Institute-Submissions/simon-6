@@ -1,20 +1,10 @@
 // variables
-
-let colorComp = [],
-    points = 0,
-    userArray = [],
-    highScores_Str,
-    highScores_Arr,
-    milliseconds = {
-        stageOne: 1000,
-        stageTwo: 700,
-        stageThree: 400
-    },
-    delay = milliseconds.stageOne,
-    customIndex, 
-    soundSetting = getAudio();
-
 const colorPool = ["red", "green", "yellow", "blue"];
+const milliseconds = {
+    stageOne: 1000,
+    stageTwo: 700,
+    stageThree: 400
+};
 const sounds = {
     red: [
         "assets/sounds/red.mp3",
@@ -46,12 +36,21 @@ const sounds = {
     ]
 };
 
+let colorComp = [],
+    points = 0,
+    userArray = [],
+    highScoresStr = "",
+    highScoresArr = [],
+    delay = milliseconds.stageOne,
+    customIndex,
+    soundSetting = getAudio();
+
 /**
  * playgame() takes a value at random from the ColorPool array
  * and adds it as the last index of the colorComp array.
  */
 function playGame() {
-    $("#play_btn").fadeOut(1000);
+    $("#play-btn").fadeOut(1000);
     let i = 0;
 
     colorComp[colorComp.length] =
@@ -65,9 +64,9 @@ function playGame() {
      * One id is used to target a sound clip. The other is used to target the relevant div element in the document. 
      *The class is then used to apply a set of CSS styles to the div until the SetTimeout function ends and the class is removed.
      */
-    let timer = setInterval(function() {
+    let timer = setInterval(() => {
         if (i === colorComp.length - 1) {
-            $(".color_btn")
+            $(".color-btn")
                 .children()
                 .removeClass("unclickable");
             clearInterval(timer);
@@ -84,7 +83,7 @@ function playGame() {
             .parent()
             .addClass("glowlayer");
         sound.play();
-        setTimeout(function() {
+        setTimeout(() => {
             $(colorId).removeClass(colorClass);
             $(colorId)
                 .parent()
@@ -93,13 +92,13 @@ function playGame() {
 
         i++;
     }, delay);
-} 
+}
 
 /********************** USER INPUT **********************/
 
 let i = 0; //i must be declared outside the function so that i can increment everytime a user clicks to add to the array
 
-$(".color_btn")
+$(".color-btn")
     .children()
     .click(function() {
         let colorClass = this.id,
@@ -143,23 +142,21 @@ function compareIndex() {
             $("#score").html("points: " + points);
 
             setTimeout(() => {
-                $(".color_btn")
+                $(".color-btn")
                     .children()
                     .addClass("unclickable");
                 levelup(); //lines
                 playGame(); //lines
             }, 1000);
-        }
-        else {
+        } else {
             i++;
         }
-    }
-    else {
+    } else {
         $("#gamescore").html(points);
         $("#gameOver").modal();
         addScore(points);
         $("#gameOver")
-            .on("hide.bs.modal", function() {
+            .on("hide.bs.modal", () => {
                 location.reload();
             })
             .modal("show");
@@ -178,46 +175,48 @@ function levelup() {
 }
 /************************ HIGH SCORES ***********************/
 /* getScores() fetches the highscores from local storage, which are returned as a single string
-* If there is no data available, the string is set to to 0,0,0,0,0 
-* The highscores  string is converted from a string to an array (of numbers). Code Courtesy of Stack Overflow
-*/
+ * If there is no data available, the string is set to to 0,0,0,0,0
+ * The highscores  string is converted from a string to an array (of numbers). Code Courtesy of Stack Overflow
+ */
 function getScores() {
-    highScores_Str = localStorage.getItem("scores"); 
-    if (highScores_Str === null) {
-        highScores_Str = "0,0,0,0,0";
+    highScoresStr = localStorage.getItem("scores");
+    if (highScoresStr === null) {
+        highScoresStr = "0,0,0,0,0";
     }
 
-    return highScores_Str.split(",").map(function(item) {
+    return highScoresStr.split(",").map(function(item) {
         return parseInt(item);
     });
 }
 
+/*
+* addScore()  checks the highscores array 
+*/
 function addScore(points) {
-    highScores_Arr = getScores();
+    highScoresArr = getScores();
 
-    if (points < highScores_Arr[4]) {
+    if (points < highScoresArr[4]) {
     } else {
-        highScores_Arr.splice(4, 1, points);
-        highScores_Arr.sort(function(a, b) {
+        highScoresArr.splice(4, 1, points);
+        highScoresArr.sort(function(a, b) {
             return b - a;
         });
-        localStorage.setItem("scores", highScores_Arr);
+        localStorage.setItem("scores", highScoresArr);
     }
 }
 
-$("#trigger").click(function() {
-    highScores_Arr = getScores();
+$("#trigger").click(() => {
+    highScoresArr = getScores();
     for (let i = 0; i < 5; i++) {
-        if (highScores_Arr[i] == 0) {
-            highScores_Arr[i] = "No user data currently available"
+        if (highScoresArr[i] == 0) {
+            highScoresArr[i] = "No data found";
         }
-        i++;
     }
-    $("#1st").html(highScores_Arr[0]);
-    $("#2nd").html(highScores_Arr[1]);
-    $("#3rd").html(highScores_Arr[2]);
-    $("#4th").html(highScores_Arr[3]);
-    $("#5th").html(highScores_Arr[4]);
+    $("#1st").html(highScoresArr[0]);
+    $("#2nd").html(highScoresArr[1]);
+    $("#3rd").html(highScoresArr[2]);
+    $("#4th").html(highScoresArr[3]);
+    $("#5th").html(highScoresArr[4]);
 });
 
 //****************** GAME CUSTOMISATION *****************

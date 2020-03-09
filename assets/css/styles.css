@@ -89,13 +89,13 @@ body {
     margin: 0;
 }
 
-#play_btn {
+#play-btn {
     margin-bottom: 5px;
 }
 
-#play_btn:visited,
-#play_btn:hover,
-#play_btn:active {
+#play-btn:visited,
+#play-btn:hover,
+#play-btn:active {
     color: rgb(0, 0, 255);
 }
 
@@ -105,7 +105,7 @@ body {
 }
 
 /*----------------------------- Simon Colours ----------------------------- */
-.color_btn {
+.color-btn {
     height: 50%;
     width: 50%;
     padding: 5px;
