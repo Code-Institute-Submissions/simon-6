@@ -1,3 +1,5 @@
+// variables
+
 let colorComp = [],
     points = 0,
     userArray = [],
@@ -8,8 +10,42 @@ let colorComp = [],
         stageTwo: 700,
         stageThree: 400
     },
-    delay;
-delay = milliseconds.stageOne;
+    delay = milliseconds.stageOne;
+    customIndex,
+    soundSetting = getAudio();
+
+const colorPool = ["red", "green", "yellow", "blue"];
+const sounds = {
+        red: [
+            "assets/sounds/red.mp3",
+            "assets/sounds/cow.mp3",
+            "assets/sounds/fart-1.mp3",
+            "assets/sounds/note-1.mp3",
+            "assets/sounds/null.mp3"
+        ],
+        green: [
+            "assets/sounds/green.mp3",
+            "assets/sounds/horse.mp3",
+            "assets/sounds/fart-2.mp3",
+            "assets/sounds/note-2.mp3",
+            "assets/sounds/null.mp3"
+        ],
+        yellow: [
+            "assets/sounds/yellow.mp3",
+            "assets/sounds/goat.mp3",
+            "assets/sounds/fart-3.mp3",
+            "assets/sounds/note-3.mp3",
+            "assets/sounds/null.mp3"
+        ],
+        blue: [
+            "assets/sounds/blue.mp3",
+            "assets/sounds/pig.mp3",
+            "assets/sounds/fart-4.mp3",
+            "assets/sounds/note-4.mp3",
+            "assets/sounds/null.mp3"
+        ]
+    };
+
 
 /**
  * playgame() takes a value at random from the ColorPool array
@@ -17,7 +53,6 @@ delay = milliseconds.stageOne;
  */
 function playGame() {
     $("#play_btn").fadeOut(1000);
-    const colorPool = ["red", "green", "yellow", "blue"];
     let i = 0;
 
     colorComp[colorComp.length] =
@@ -113,8 +148,8 @@ $(".color_btn")
                         $(".color_btn")
                             .children()
                             .addClass("unclickable");
-                        levelup(); //lines 139-157
-                        playGame(); //lines 11-56
+                        levelup(); //lines 
+                        playGame(); //lines 
                     }, 1000);
                 }
 
@@ -139,8 +174,6 @@ $(".color_btn")
     });
 
 /************************ LEVEL UP ************************/
-
-
 function levelup() {
     if (points >= 20) {
         delay = milliseconds.stageTwo;
@@ -215,40 +248,6 @@ function getAudio() {
 }
 
 function audioSource(colour) {
-
-    let customIndex;
-    let soundSetting = getAudio();
-    const sounds = {
-        red: [
-            "assets/sounds/red.mp3",
-            "assets/sounds/cow.mp3",
-            "assets/sounds/fart-1.mp3",
-            "assets/sounds/note-1.mp3",
-            "assets/sounds/null.mp3"
-        ],
-        green: [
-            "assets/sounds/green.mp3",
-            "assets/sounds/horse.mp3",
-            "assets/sounds/fart-2.mp3",
-            "assets/sounds/note-2.mp3",
-            "assets/sounds/null.mp3"
-        ],
-        yellow: [
-            "assets/sounds/yellow.mp3",
-            "assets/sounds/goat.mp3",
-            "assets/sounds/fart-3.mp3",
-            "assets/sounds/note-3.mp3",
-            "assets/sounds/null.mp3"
-        ],
-        blue: [
-            "assets/sounds/blue.mp3",
-            "assets/sounds/pig.mp3",
-            "assets/sounds/fart-4.mp3",
-            "assets/sounds/note-4.mp3",
-            "assets/sounds/null.mp3"
-        ]
-    };
-
     if (soundSetting.includes("default") === true) {
         customIndex = 0;
     } else if (soundSetting.includes("farm") === true) {
@@ -264,7 +263,6 @@ function audioSource(colour) {
     return sounds[colour][customIndex];
 
 }
-
 
 /************************ EMAIL FEEDBACK ***********************/
 (function() {
